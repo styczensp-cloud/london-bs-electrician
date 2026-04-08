@@ -1,17 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const title = 'Electrician Dunstable | EICR, Rewires & Consumer Units | London BS Ltd';
-const description = 'London BS Ltd — NICEIC registered electrician based in Dunstable. Specialists in EICR certificates, house rewires, and consumer unit replacements across Dunstable, Luton and Leighton Buzzard.';
-const canonical = 'https://londonbs.uk/';
+const title = 'Electrician Dunstable | EICR & Rewires | London BS Ltd';
+const description = 'NICEIC registered electrician in Dunstable. EICR certificates, house rewires, and consumer unit replacements across Dunstable, Luton and Leighton Buzzard.';
 
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const schema = [
   {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "London BS Ltd",
     "description": "NICEIC registered electrician based in Dunstable. Specialists in EICR certificates, house rewires, and consumer unit replacements.",
-    "url": "https://londonbs.uk",
+    "url": site,
     "telephone": "07427670610",
     "address": {
       "@type": "PostalAddress",
@@ -25,11 +25,11 @@ const schema = [
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"}]
+    "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":`${site}/`}]
   }
 ];
 ---
-<Layout title={title} description={description} canonical={canonical} schema={schema}>
+<Layout title={title} description={description} schema={schema}>
 
 <section class="hero">
   <div class="container hero__inner">
@@ -64,8 +64,8 @@ const schema = [
   <div class="container">
     <div class="section-head">
       <span class="section-head__label">What we do</span>
-      <h2 class="section-head__title">Four services. Done properly.</h2>
-      <p class="section-head__body">We focus on the electrical work that matters most for homeowners and landlords. If you need one of these, we can help.</p>
+      <h2 class="section-head__title">Five services. Done properly.</h2>
+      <p class="section-head__body">Electrical work and air conditioning for homeowners, landlords, and small businesses. If you need one of these, we can help.</p>
     </div>
     <div class="services-grid">
       <article class="service-card">
@@ -91,6 +91,12 @@ const schema = [
         <h3 class="service-card__title">Consumer Unit Changes</h3>
         <p class="service-card__body">An old fuse board without proper RCD protection is a common EICR failure point. We replace outdated consumer units with modern boards that meet current safety standards.</p>
         <a href="/consumer-unit-changes" class="service-card__link">Consumer unit replacements <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="service-card">
+        <div class="service-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01"/></svg></div>
+        <h3 class="service-card__title">Air Conditioning</h3>
+        <p class="service-card__body">Split system air conditioning for homes and small businesses. Single and multi-split installations for bedrooms, home offices, loft conversions, and commercial spaces — supplied, fitted, and commissioned by a F-Gas registered engineer.</p>
+        <a href="/air-conditioning" class="service-card__link">Air conditioning installation <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </article>
     </div>
   </div>

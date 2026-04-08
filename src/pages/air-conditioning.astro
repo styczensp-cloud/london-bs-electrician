@@ -1,0 +1,160 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = 'Air Conditioning Installation Dunstable | London BS Ltd';
+const description = 'Air conditioning installation in Dunstable. F-Gas registered. Single and multi-split systems for homes and small businesses across Dunstable, Luton and the surrounding area.';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Air Conditioning Installation",
+    "provider": {"@type": "LocalBusiness", "name": "London BS Ltd", "url": site},
+    "areaServed": [{"@type": "City", "name": "Dunstable"}, {"@type": "City", "name": "Luton"}],
+    "serviceType": "Air Conditioning Installation"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/`},
+      {"@type": "ListItem", "position": 2, "name": "Air Conditioning", "item": `${site}/air-conditioning`}
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is F-Gas registration and why does it matter?",
+        "acceptedAnswer": {"@type": "Answer", "text": "F-Gas regulations require that anyone handling refrigerants — including the installation of split system air conditioning — holds a valid F-Gas qualification. This covers the safe handling, charging, and disposal of refrigerant. London BS Ltd holds the relevant F-Gas certification."}
+      },
+      {
+        "@type": "Question",
+        "name": "How long does an air conditioning installation take?",
+        "acceptedAnswer": {"@type": "Answer", "text": "A single-split installation for one room typically takes a full day. A multi-split system covering two or three rooms usually takes two days. We will give you a realistic timescale when we quote."}
+      },
+      {
+        "@type": "Question",
+        "name": "Do you supply the equipment as well as install it?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. We can supply and install. If you have already purchased a unit from a supplier, contact us to discuss installation only."}
+      },
+      {
+        "@type": "Question",
+        "name": "Can the system be used for heating as well as cooling?",
+        "acceptedAnswer": {"@type": "Answer", "text": "Yes. Most modern split systems are reverse-cycle heat pumps — they heat in winter and cool in summer. In heating mode they are considerably more efficient than electric resistance heaters, which makes them worth considering for rooms that are hard to heat through a central system."}
+      }
+    ]
+  }
+];
+---
+<Layout title={title} description={description} schema={schema}>
+<section class="page-hero">
+  <div class="container">
+    <nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><span aria-current="page">Air Conditioning</span></nav>
+    <p class="page-hero__label">Air Conditioning · Dunstable</p>
+    <h1 class="page-hero__title">Air Conditioning Installation in Dunstable</h1>
+    <p class="page-hero__body">We supply and install split system air conditioning for homes and small businesses across Dunstable and the surrounding area. Single units for individual rooms or multi-split systems covering several rooms — fitted and commissioned by a F-Gas registered engineer.</p>
+    <div class="page-hero__cta">
+      <a href="/contact" class="btn btn--primary btn--lg">Get an Air Con Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-layout">
+      <div class="content-body">
+
+        <div class="niceic-note">
+          <span class="niceic-note__badge">F-Gas Registered</span>
+          <span class="niceic-note__text">Work involving refrigerant — including the installation of split system air conditioning — is legally required to be carried out by a F-Gas registered engineer. London BS Ltd holds the relevant F-Gas certification.</span>
+        </div>
+
+        <h2>Where air conditioning makes the most difference</h2>
+        <p>Some rooms and properties overheat badly or need consistent temperatures that opening a window cannot provide. These are the situations where a split system is genuinely useful rather than a luxury.</p>
+        <p>For homes:</p>
+        <ul class="check">
+          <li>Loft conversions and top-floor bedrooms, which become uncomfortably hot in summer and are difficult to keep cool overnight</li>
+          <li>Home offices, where working through warm weather without adequate cooling affects concentration and comfort</li>
+          <li>Bedrooms generally, where a quiet, cool room improves sleep during warm spells</li>
+          <li>Garden rooms, home studios, and outbuildings, which often have no natural ventilation and no connection to the central heating</li>
+          <li>Living rooms and lounges where the family spends the most time</li>
+        </ul>
+        <p>For small businesses:</p>
+        <ul class="check">
+          <li>Small offices where staff need a stable working environment</li>
+          <li>Treatment rooms, clinics, and studios where client comfort matters</li>
+          <li>Server rooms and equipment spaces that generate significant heat</li>
+          <li>Retail units and small commercial premises where temperature affects both staff and customers</li>
+        </ul>
+
+        <h2>Single-split and multi-split systems</h2>
+        <p>A <strong>single-split system</strong> is one indoor unit connected to one outdoor unit. It is the most common domestic installation and is the right choice when you need to condition one room. Installation is straightforward: the indoor unit mounts on the wall, the outdoor unit sits on an external wall or on the ground, and refrigerant pipework runs between them.</p>
+        <p>A <strong>multi-split system</strong> uses one outdoor unit connected to two, three, or four indoor units. It is practical when you want to condition several rooms without fitting multiple outdoor units on the exterior of the property. Each indoor unit can be controlled independently, and the rooms do not need to be adjacent.</p>
+        <p>We advise on which is appropriate based on the property, the number of rooms, the position of the outdoor unit, and the available space. If you are unsure which type suits your situation, we can assess the property before quoting.</p>
+
+        <h2>Cooling and heating — it works both ways</h2>
+        <p>Most modern split systems are reverse-cycle units — they heat as well as cool. In heating mode, a split air conditioning unit is considerably more efficient than electric panel heaters or convector heaters. For rooms that are hard to heat through a central heating system — loft conversions, garden rooms, outbuildings — an air conditioning unit running in heating mode can be a practical year-round solution rather than a seasonal one.</p>
+        <p>This is worth considering if you are adding a room that is not connected to the central heating, or if you have a space that the boiler simply does not reach effectively.</p>
+
+        <h2>What installation involves</h2>
+        <ul class="check">
+          <li>We assess the room, wall construction, outdoor unit position, and power supply requirements before quoting</li>
+          <li>The indoor unit is mounted high on the wall and connected to the outdoor unit via refrigerant pipework and electrical cabling</li>
+          <li>We handle the electrical connection as part of the installation — no need to coordinate a separate electrician</li>
+          <li>Refrigerant is charged and the system is commissioned and tested before handover</li>
+          <li>We agree the routing and unit positions with you before any work starts</li>
+        </ul>
+        <p>The outdoor unit is typically positioned on an external wall, on the ground beside the building, or on a flat roof where accessible. The refrigerant pipework runs through a small core drilled through the wall. We keep the installation tidy and discuss the routing with you in advance.</p>
+
+        <h2>Why London BS Ltd</h2>
+        <ul class="check">
+          <li><strong>F-Gas registered</strong> — a legal requirement for anyone handling refrigerants; our certification covers supply, installation, and commissioning</li>
+          <li><strong>Electrical work included</strong> — we handle the electrical connection ourselves, so there is no need to bring in a second contractor</li>
+          <li><strong>Local to Dunstable</strong> — we work across Dunstable, Luton, Houghton Regis, and Leighton Buzzard without inflated call-out charges</li>
+          <li><strong>Straightforward advice</strong> — we tell you what system suits the space and why, rather than upselling capacity you do not need</li>
+        </ul>
+
+        <h2 style="margin-top:2.5rem;">Frequently asked questions</h2>
+        <div class="faq-list" style="margin-top:1rem;">
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">What is F-Gas registration and why does it matter?<span class="faq-icon">+</span></button><div class="faq-a">F-Gas regulations require that anyone handling refrigerants — including installing split system air conditioning — holds a valid F-Gas qualification. This covers the safe handling, charging, and recovery of refrigerant. London BS Ltd holds the relevant certification, which is a legal requirement for this type of work.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How long does an air conditioning installation take?<span class="faq-icon">+</span></button><div class="faq-a">A single-split installation for one room typically takes a full day. A multi-split system covering two or three rooms usually takes two days. We give you a realistic timescale when we quote.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you supply the equipment as well as install it?<span class="faq-icon">+</span></button><div class="faq-a">Yes. We can supply and install as part of the same job. If you have already purchased a unit from a supplier or manufacturer, contact us to discuss installation only.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Can the system heat as well as cool?<span class="faq-icon">+</span></button><div class="faq-a">Yes. Most modern split systems are reverse-cycle heat pumps. They cool in summer and heat in winter. In heating mode they are considerably more efficient than electric resistance heaters — worth considering for any room that is hard to heat through the central system.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How noisy is a split system air conditioning unit?<span class="faq-icon">+</span></button><div class="faq-a">Modern split system indoor units are quiet enough for bedroom use — typically around 20–25 dB on the lowest setting. The outdoor unit produces more noise but is positioned outside, usually away from windows.</div></div>
+        </div>
+
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <p class="sidebar-box__title">Get an air con quote</p>
+          <p class="sidebar-box__body">Tell us the room, property type, and whether you need one unit or several.</p>
+          <a href="/contact" class="btn btn--primary">Send an Enquiry</a>
+          <p class="sidebar-box__body" style="margin-top:0.65rem; margin-bottom:0.35rem;">Or call directly:</p>
+          <a href="tel:07427670610" class="sidebar-box__phone"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13 1 .36 1.97.71 2.9a2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 15.1 16.1l.96-.96a2 2 0 0 1 2.11-.45c.93.35 1.9.58 2.9.71a2 2 0 0 1 1.73 2.02Z"/></svg>07427 670610</a>
+          <div class="sidebar-related">
+            <p class="sidebar-related__label">Related pages</p>
+            <a href="/eicr"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>EICR Certificates</a>
+            <a href="/consumer-unit-changes"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Consumer Unit Changes</a>
+            <a href="/contact"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Get a Quote</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2 class="cta-band__title">Need air conditioning installed in Dunstable?</h2>
+    <p class="cta-band__body">Get in touch with your property details. We'll advise on the right system and come back with a clear quote.</p>
+    <div class="cta-band__actions">
+      <a href="/contact" class="btn btn--outline btn--lg">Request a Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+</Layout>

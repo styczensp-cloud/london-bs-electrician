@@ -1,15 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const title = 'Consumer Unit Replacement Dunstable | Fuse Box Upgrade | London BS Ltd';
-const description = 'Consumer unit replacements in Dunstable from London BS Ltd — NICEIC registered. Old fuse boxes replaced with modern consumer units with full RCD protection. Certificated work.';
-const canonical = 'https://londonbs.uk/consumer-unit-changes';
+const title = 'Consumer Unit Replacement Dunstable | London BS Ltd';
+const description = 'Consumer unit replacements in Dunstable — NICEIC registered. Old fuse boxes replaced with modern boards with full RCD protection. Certificated work.';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const schema = [
-  {"@context":"https://schema.org","@type":"Service","name":"Consumer Unit Replacement","provider":{"@type":"LocalBusiness","name":"London BS Ltd"},"areaServed":[{"@type":"City","name":"Dunstable"},{"@type":"City","name":"Luton"}],"serviceType":"Consumer Unit Replacement"},
-  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"},{"@type":"ListItem","position":2,"name":"Consumer Unit Changes","item":"https://londonbs.uk/consumer-unit-changes"}]},
+  {"@context":"https://schema.org","@type":"Service","name":"Consumer Unit Replacement","provider":{"@type":"LocalBusiness","name":"London BS Ltd","url":site},"areaServed":[{"@type":"City","name":"Dunstable"},{"@type":"City","name":"Luton"}],"serviceType":"Consumer Unit Replacement"},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},{"@type":"ListItem","position":2,"name":"Consumer Unit Changes","item":`${site}/consumer-unit-changes`}]},
   {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does a consumer unit replacement take?","acceptedAnswer":{"@type":"Answer","text":"A straightforward consumer unit replacement typically takes four to eight hours in a single visit."}},{"@type":"Question","name":"Is a consumer unit replacement notifiable under Building Regulations?","acceptedAnswer":{"@type":"Answer","text":"Yes. Replacing a consumer unit is notifiable work under Part P. We handle the notification and issue an Electrical Installation Certificate on completion."}},{"@type":"Question","name":"Will replacing the consumer unit fix my electrical problems?","acceptedAnswer":{"@type":"Answer","text":"A new consumer unit addresses protection at the distribution board — it does not fix problems in the wiring itself. We will advise you honestly before any work begins."}}]}
 ];
 ---
-<Layout title={title} description={description} canonical={canonical} schema={schema}>
+<Layout title={title} description={description} schema={schema}>
 <section class="page-hero">
   <div class="container">
     <nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><span aria-current="page">Consumer Unit Changes</span></nav>

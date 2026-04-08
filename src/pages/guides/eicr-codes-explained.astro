@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 const title = 'EICR Codes Explained | C1, C2, C3 and FI | London BS Ltd';
-const description = 'Plain English guide to EICR codes — what C1, C2, C3 and FI mean, what action is required, and what an unsatisfactory result means for homeowners and landlords.';
-const canonical = 'https://londonbs.uk/guides/eicr-codes-explained';
-const schema = [{"@context":"https://schema.org","@type":"Article","headline":"EICR Codes Explained","publisher":{"@type":"Organization","name":"London BS Ltd","url":"https://londonbs.uk"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"},{"@type":"ListItem","position":2,"name":"EICR","item":"https://londonbs.uk/eicr"},{"@type":"ListItem","position":3,"name":"EICR Codes Explained","item":"https://londonbs.uk/guides/eicr-codes-explained"}]}];
+const description = 'Plain English guide to EICR codes — what C1, C2, C3 and FI mean, what action is required, and what an unsatisfactory result means.';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const schema = [{"@context":"https://schema.org","@type":"Article","headline":"EICR Codes Explained","url":`${site}/guides/eicr-codes-explained`,"publisher":{"@type":"Organization","name":"London BS Ltd","url":site}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},{"@type":"ListItem","position":2,"name":"EICR","item":`${site}/eicr`},{"@type":"ListItem","position":3,"name":"EICR Codes Explained","item":`${site}/guides/eicr-codes-explained`}]}];
 ---
-<Layout title={title} description={description} canonical={canonical} schema={schema}>
+<Layout title={title} description={description} schema={schema}>
 <section class="support-hero"><div class="container"><nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><a href="/eicr">EICR</a><span>›</span><span aria-current="page">EICR Codes Explained</span></nav><p class="page-hero__label">Guide</p><h1 class="page-hero__title">EICR codes explained — C1, C2, C3 and FI</h1><p class="page-hero__body">When an EICR is completed, any defects found are recorded using a standard set of codes. Here is what each code means in plain English and what you are expected to do about it.</p></div></section>
 <section class="section"><div class="container"><div class="support-content">
 <h2>Why codes are used</h2>

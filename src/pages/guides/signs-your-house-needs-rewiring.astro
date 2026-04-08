@@ -1,11 +1,12 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const title = 'Signs Your House Needs Rewiring | Rewire Warning Signs | London BS Ltd';
-const description = 'How to tell if your house needs rewiring. Common warning signs of old or unsafe wiring — from old cable types to tripping circuits — explained in plain English.';
-const canonical = 'https://londonbs.uk/guides/signs-your-house-needs-rewiring';
-const schema = [{"@context":"https://schema.org","@type":"Article","headline":"Signs Your House Needs Rewiring","publisher":{"@type":"Organization","name":"London BS Ltd","url":"https://londonbs.uk"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"},{"@type":"ListItem","position":2,"name":"House Rewires","item":"https://londonbs.uk/rewires"},{"@type":"ListItem","position":3,"name":"Signs Your House Needs Rewiring","item":"https://londonbs.uk/guides/signs-your-house-needs-rewiring"}]}];
+const title = 'Signs Your House Needs Rewiring | London BS Ltd';
+const description = 'Signs your house may need rewiring — from old rubber cables to tripping circuits. Common warning signs explained in plain English by a NICEIC registered electrician.';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const schema = [{"@context":"https://schema.org","@type":"Article","headline":"Signs Your House Needs Rewiring","url":`${site}/guides/signs-your-house-needs-rewiring`,"publisher":{"@type":"Organization","name":"London BS Ltd","url":site}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},{"@type":"ListItem","position":2,"name":"House Rewires","item":`${site}/rewires`},{"@type":"ListItem","position":3,"name":"Signs Your House Needs Rewiring","item":`${site}/guides/signs-your-house-needs-rewiring`}]}];
 ---
-<Layout title={title} description={description} canonical={canonical} schema={schema}>
+<Layout title={title} description={description} schema={schema}>
 <section class="support-hero"><div class="container"><nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><a href="/rewires">House Rewires</a><span>›</span><span aria-current="page">Signs Your House Needs Rewiring</span></nav><p class="page-hero__label">Guide</p><h1 class="page-hero__title">Signs your house needs rewiring</h1><p class="page-hero__body">Old or deteriorating wiring doesn't always announce itself dramatically. Here are the most common signs that a property may need a full or partial rewire.</p></div></section>
 <section class="section"><div class="container"><div class="support-content">
 <h2>The age of the wiring</h2>
