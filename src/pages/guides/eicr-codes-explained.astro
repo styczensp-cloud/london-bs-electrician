@@ -1,0 +1,32 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const title = 'EICR Codes Explained | C1, C2, C3 and FI | London BS Ltd';
+const description = 'Plain English guide to EICR codes — what C1, C2, C3 and FI mean, what action is required, and what an unsatisfactory result means for homeowners and landlords.';
+const canonical = 'https://londonbs.uk/guides/eicr-codes-explained';
+const schema = [{"@context":"https://schema.org","@type":"Article","headline":"EICR Codes Explained","publisher":{"@type":"Organization","name":"London BS Ltd","url":"https://londonbs.uk"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"},{"@type":"ListItem","position":2,"name":"EICR","item":"https://londonbs.uk/eicr"},{"@type":"ListItem","position":3,"name":"EICR Codes Explained","item":"https://londonbs.uk/guides/eicr-codes-explained"}]}];
+---
+<Layout title={title} description={description} canonical={canonical} schema={schema}>
+<section class="support-hero"><div class="container"><nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><a href="/eicr">EICR</a><span>›</span><span aria-current="page">EICR Codes Explained</span></nav><p class="page-hero__label">Guide</p><h1 class="page-hero__title">EICR codes explained — C1, C2, C3 and FI</h1><p class="page-hero__body">When an EICR is completed, any defects found are recorded using a standard set of codes. Here is what each code means in plain English and what you are expected to do about it.</p></div></section>
+<section class="section"><div class="container"><div class="support-content">
+<h2>Why codes are used</h2>
+<p>Rather than leaving the interpretation of a fault to individual judgment, EICR certificates use a standardised coding system. Each defect or observation found during the inspection is assigned one of four codes. The code determines the overall outcome of the report. A report with only C3 observations is classified as <strong>Satisfactory</strong>. A report with any C1, C2, or FI observation is classified as <strong>Unsatisfactory</strong>.</p>
+<h2>The four codes</h2>
+<div class="codes-grid" style="margin:1.5rem 0;">
+<div class="code-card code-card--c1"><p class="code-card__label">C1 — Danger present</p><p class="code-card__body">There is an immediate risk of injury or worse. Requires immediate action. The electrician will often make the installation safe before leaving — for example, by isolating the affected circuit.</p></div>
+<div class="code-card code-card--c2"><p class="code-card__label">C2 — Potentially dangerous</p><p class="code-card__body">The fault is not immediately dangerous, but has the potential to become so. Requires urgent remedial action. For landlords, regulations require this work to be completed within 28 days of the inspection.</p></div>
+<div class="code-card code-card--c3"><p class="code-card__label">C3 — Improvement recommended</p><p class="code-card__body">The installation does not meet the latest standards but is not considered dangerous in its current state. A C3 is a recommendation, not a requirement. The report remains Satisfactory if there are no C1, C2, or FI observations alongside.</p></div>
+<div class="code-card code-card--fi"><p class="code-card__label">FI — Further investigation required</p><p class="code-card__body">The electrician was unable to fully assess something and further investigation is needed. FI observations make the overall outcome unsatisfactory until the investigation is carried out and resolved.</p></div>
+</div>
+<h2>What a satisfactory result means</h2>
+<p>A satisfactory EICR means the inspection found no C1, C2, or FI observations. It does not mean the installation is perfect — C3 observations may be present. Satisfactory means the installation is in an acceptable condition and safe to continue using at the time of inspection.</p>
+<h2>What a landlord must do with an unsatisfactory EICR</h2>
+<p>If an EICR is unsatisfactory, the landlord must have the remedial work carried out within 28 days. For full detail see our <a href="/landlord-eicr" class="inline-link">landlord EICR page</a>.</p>
+<h2>Common examples by code</h2>
+<p><strong>C1:</strong> Exposed live conductors, missing earth connections creating immediate shock risk, severely damaged insulation on accessible cables.</p>
+<p><strong>C2:</strong> Absence of RCD protection where required, inadequate main bonding, signs of overheating at connections.</p>
+<p><strong>C3:</strong> Single-pole switching on lighting circuits, older-style accessories that are functional but do not meet current standard.</p>
+<p><strong>FI:</strong> Inaccessible sections of wiring, test results that were inconclusive and require further investigation.</p>
+<div class="support-cta-box"><p class="support-cta-box__title">Need an EICR in Dunstable?</p><p class="support-cta-box__body">London BS Ltd carries out EICR certificates for homeowners, landlords, and property buyers across Dunstable and the surrounding area.</p><a href="/eicr" class="btn btn--primary">About our EICR service</a></div>
+</div></div></section>
+<div class="related-strip"><div class="container"><p class="related-strip__label">Related pages</p><div class="related-strip__links"><a href="/eicr" class="btn btn--outline-brown" style="font-size:0.87rem;">EICR Certificates</a><a href="/landlord-eicr" class="btn btn--outline-brown" style="font-size:0.87rem;">Landlord EICR</a><a href="/guides/what-fails-an-eicr" class="btn btn--outline-brown" style="font-size:0.87rem;">What Fails an EICR</a><a href="/guides/how-often-is-an-eicr-needed" class="btn btn--outline-brown" style="font-size:0.87rem;">How Often Is an EICR Needed</a></div></div></div>
+</Layout>

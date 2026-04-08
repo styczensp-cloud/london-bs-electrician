@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const title = 'What Fails an EICR | Common EICR Failures | London BS Ltd';
+const description = 'What commonly causes an EICR to return an unsatisfactory result — from missing RCDs to old consumer units. Plain English guide from London BS Ltd, Dunstable.';
+const canonical = 'https://londonbs.uk/guides/what-fails-an-eicr';
+const schema = [{"@context":"https://schema.org","@type":"Article","headline":"What Fails an EICR","publisher":{"@type":"Organization","name":"London BS Ltd","url":"https://londonbs.uk"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"},{"@type":"ListItem","position":2,"name":"EICR","item":"https://londonbs.uk/eicr"},{"@type":"ListItem","position":3,"name":"What Fails an EICR","item":"https://londonbs.uk/guides/what-fails-an-eicr"}]}];
+---
+<Layout title={title} description={description} canonical={canonical} schema={schema}>
+<section class="support-hero"><div class="container"><nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><a href="/eicr">EICR</a><span>›</span><span aria-current="page">What Fails an EICR</span></nav><p class="page-hero__label">Guide</p><h1 class="page-hero__title">What fails an EICR?</h1><p class="page-hero__body">An unsatisfactory EICR result means the inspection found one or more significant faults. Here are the most common reasons an installation fails and what the options are.</p></div></section>
+<section class="section"><div class="container"><div class="support-content">
+<h2>What does failing an EICR mean?</h2>
+<p>An EICR is classified as unsatisfactory when it contains one or more C1, C2, or FI observations — faults that are dangerous, potentially dangerous, or that require further investigation before the installation can be considered safe.</p>
+<h2>1. No RCD protection, or inadequate RCD protection</h2>
+<p>This is the single most common reason for an unsatisfactory outcome, particularly in properties built before the 1990s. Older consumer units often have no RCD at all. This is typically coded C2. The usual remedy is a <a href="/consumer-unit-changes" class="inline-link">consumer unit replacement</a>.</p>
+<h2>2. Absent or inadequate bonding</h2>
+<p>Main bonding connects metallic services entering the property — water pipes and gas pipework — to the earth of the electrical installation. If this bonding is absent or undersized, it is a significant safety issue typically coded C2.</p>
+<h2>3. Deteriorated or substandard wiring</h2>
+<p>Old rubber-insulated or fabric-covered wiring becomes brittle over time. When insulation degrades, there is a risk of short circuits, earth faults, and fire. The remedy for a property with widespread old wiring is usually a <a href="/rewires" class="inline-link">full or partial rewire</a>.</p>
+<h2>4. Overheating or damaged consumer units</h2>
+<figure class="content-photo" style="margin:1rem 0 1.5rem;"><img src="/images/2025-12-28.png" alt="Burn damage on a consumer unit busbar — a dangerous C1 fault"><figcaption>Heat damage and burn marks on a consumer unit busbar — a C1 observation requiring immediate attention.</figcaption></figure>
+<p>Loose connections cause resistive heating over time. Visible burn marks or charring at the consumer unit is coded C1 — immediate danger — and the board typically needs urgent replacement.</p>
+<h2>5. Missing or incorrect earthing</h2>
+<p>If the main earth conductor is absent, undersized, or incorrectly connected, it undermines the protection provided by all protective devices in the system. Almost always a C2 observation.</p>
+<h2>6. DIY or non-compliant work</h2>
+<p>Electrical work carried out by unqualified individuals is a common source of faults — incorrect cable sizing, missing earth connections, non-standard wiring methods. Coded C2 or C1 depending on severity.</p>
+<h2>What happens next?</h2>
+<p>If your EICR is unsatisfactory, the report will tell you exactly what needs to be addressed and how urgently. We carry out all remedial work identified in our reports. For a full explanation of what the codes mean, see <a href="/guides/eicr-codes-explained" class="inline-link">EICR codes explained</a>.</p>
+<div class="support-cta-box"><p class="support-cta-box__title">Received an unsatisfactory EICR?</p><p class="support-cta-box__body">We carry out remedial work to rectify EICR failures across Dunstable and the surrounding area. Get in touch and we'll advise on what's needed.</p><a href="/contact" class="btn btn--primary">Get in Touch</a></div>
+</div></div></section>
+<div class="related-strip"><div class="container"><p class="related-strip__label">Related pages</p><div class="related-strip__links"><a href="/eicr" class="btn btn--outline-brown" style="font-size:0.87rem;">EICR Certificates</a><a href="/landlord-eicr" class="btn btn--outline-brown" style="font-size:0.87rem;">Landlord EICR</a><a href="/guides/eicr-codes-explained" class="btn btn--outline-brown" style="font-size:0.87rem;">EICR Codes Explained</a><a href="/guides/how-often-is-an-eicr-needed" class="btn btn--outline-brown" style="font-size:0.87rem;">How Often Is an EICR Needed</a></div></div></div>
+</Layout>

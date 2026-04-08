@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = 'House Rewire Dunstable | Full & Partial Rewires | London BS Ltd';
+const description = 'House rewires in Dunstable from London BS Ltd — NICEIC registered. Full and partial rewires for properties with old or unsafe wiring across Dunstable, Luton and Leighton Buzzard.';
+const canonical = 'https://londonbs.uk/rewires';
+const schema = [
+  {"@context":"https://schema.org","@type":"Service","name":"House Rewires","provider":{"@type":"LocalBusiness","name":"London BS Ltd"},"areaServed":[{"@type":"City","name":"Dunstable"},{"@type":"City","name":"Luton"}],"serviceType":"House Rewire"},
+  {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"},{"@type":"ListItem","position":2,"name":"House Rewires","item":"https://londonbs.uk/rewires"}]},
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How long does a house rewire take?","acceptedAnswer":{"@type":"Answer","text":"A full rewire of a standard two or three-bedroom property typically takes three to seven days."}},{"@type":"Question","name":"Do I need to move out during a rewire?","acceptedAnswer":{"@type":"Answer","text":"For a full rewire, the electricity will be off during working hours each day, which makes living in the property impractical for most people."}},{"@type":"Question","name":"Does a rewire require Building Regulations approval?","acceptedAnswer":{"@type":"Answer","text":"Yes. A rewire is notifiable work under Part P of the Building Regulations. We handle the notification and certification as part of the job."}}]}
+];
+---
+<Layout title={title} description={description} canonical={canonical} schema={schema}>
+<section class="page-hero">
+  <div class="container">
+    <nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><span aria-current="page">House Rewires</span></nav>
+    <p class="page-hero__label">Rewires · Dunstable</p>
+    <h1 class="page-hero__title">House Rewires in Dunstable</h1>
+    <p class="page-hero__body">Full and partial rewires for homes in Dunstable and the surrounding area. Old wiring replaced to current standards, certificated on completion by a NICEIC registered electrician.</p>
+    <div class="page-hero__cta">
+      <a href="/contact" class="btn btn--primary btn--lg">Get a Rewire Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="service-layout">
+      <div class="content-body">
+        <h2>When is a rewire needed?</h2>
+        <p>Most properties that need rewiring have wiring that is simply too old to be safe or reliable. A rewire is likely to be needed when:</p>
+        <ul class="check">
+          <li>The property has original rubber or fabric-covered wiring (pre-1970s installations)</li>
+          <li>An EICR has returned an unsatisfactory result requiring significant remedial work</li>
+          <li>The installation has no RCD protection</li>
+          <li>Circuits are frequently tripping without a clear external cause</li>
+          <li>The consumer unit still has rewireable fuses rather than MCBs</li>
+          <li>The property has not had any electrical work done in over 25 years</li>
+          <li>You are undertaking a full renovation and it makes sense to rewire at the same time</li>
+        </ul>
+        <p>If you are unsure whether your property needs a full rewire, see our guide on <a href="/guides/signs-your-house-needs-rewiring" class="inline-link">signs your house needs rewiring</a>.</p>
+        <h2>Full rewire vs partial rewire</h2>
+        <p>A full rewire replaces all the fixed wiring throughout the property — cables, sockets, switches, light fittings, and the consumer unit. A partial rewire targets specific circuits or areas that have been identified as faulty or insufficient. We assess each job individually and recommend what is genuinely needed.</p>
+        <figure class="content-photo">
+          <img src="/images/2025-05-26.jpg" alt="Finished staircase lighting installation — example of completed electrical work by London BS Ltd in Dunstable">
+          <figcaption>Completed staircase lighting installation — part of a house rewire project in the Dunstable area.</figcaption>
+        </figure>
+        <h2>What to expect during a rewire</h2>
+        <ul class="check">
+          <li>Floorboards in upstairs rooms are lifted to run cables between floors</li>
+          <li>Shallow channels may be cut in walls to route cables to new socket and switch positions</li>
+          <li>The electricity supply will be off during working hours each day</li>
+          <li>We work methodically to minimise disruption and leave the property as tidy as reasonably possible</li>
+          <li>On completion, all circuits are tested and an Electrical Installation Certificate is issued</li>
+          <li>The work is notified to Building Control under Part P of the Building Regulations</li>
+        </ul>
+        <p>Some redecoration will usually be needed after a full rewire. We are upfront about this before work starts.</p>
+        <h2>What you receive on completion</h2>
+        <ul class="check">
+          <li>An Electrical Installation Certificate confirming the installation meets BS 7671</li>
+          <li>Building Regulations completion certificate (Part P notification)</li>
+          <li>A new consumer unit fitted with RCD protection as standard</li>
+          <li>A clearly labelled distribution board</li>
+        </ul>
+        <h2>Rewires and consumer unit replacement</h2>
+        <p>A rewire always includes a new consumer unit. If the wiring in your property is in generally sound condition but the consumer unit is outdated, a <a href="/consumer-unit-changes" class="inline-link">consumer unit replacement</a> on its own may be all that is required.</p>
+        <h2 style="margin-top:2.5rem;">Frequently asked questions</h2>
+        <div class="faq-list" style="margin-top:1rem;">
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How long does a house rewire take?<span class="faq-icon">+</span></button><div class="faq-a">A full rewire of a standard two or three-bedroom property typically takes three to seven days. We give you a realistic estimate when we quote.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Do I need to move out during a rewire?<span class="faq-icon">+</span></button><div class="faq-a">For a full rewire, the electricity will be off during working hours each day. Most people find it impractical to remain in the property. For a partial rewire, it is often possible to remain with some inconvenience.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Will the rewire damage my walls and ceilings?<span class="faq-icon">+</span></button><div class="faq-a">Some lifting of floorboards and chasing of walls is necessary to route new cables. We work carefully and tidy up as we go, but some redecoration after a full rewire is normal.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Does a rewire require Building Regulations approval?<span class="faq-icon">+</span></button><div class="faq-a">Yes. A rewire is notifiable work under Part P of the Building Regulations. As a NICEIC registered contractor, we handle the notification and certification.</div></div>
+        </div>
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <p class="sidebar-box__title">Get a rewire quote</p>
+          <p class="sidebar-box__body">Tell us about your property — size, age, and what you know about the current wiring.</p>
+          <a href="/contact" class="btn btn--primary">Send an Enquiry</a>
+          <p class="sidebar-box__body" style="margin-top:0.65rem; margin-bottom:0.35rem;">Or call directly:</p>
+          <a href="tel:07427670610" class="sidebar-box__phone"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13 1 .36 1.97.71 2.9a2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 15.1 16.1l.96-.96a2 2 0 0 1 2.11-.45c.93.35 1.9.58 2.9.71a2 2 0 0 1 1.73 2.02Z"/></svg>07427 670610</a>
+          <div class="sidebar-related">
+            <p class="sidebar-related__label">Related pages</p>
+            <a href="/guides/signs-your-house-needs-rewiring"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Signs Your House Needs Rewiring</a>
+            <a href="/guides/when-to-replace-a-fuse-box"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>When to Replace a Fuse Box</a>
+            <a href="/consumer-unit-changes"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Consumer Unit Changes</a>
+            <a href="/landlord-eicr"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Landlord EICR</a>
+            <a href="/eicr"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>EICR Certificates</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="container">
+    <h2 class="cta-band__title">Need a rewire in Dunstable?</h2>
+    <p class="cta-band__body">Get in touch with your property details. We'll give you an honest assessment and a clear quote.</p>
+    <div class="cta-band__actions">
+      <a href="/contact" class="btn btn--outline btn--lg">Request a Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+</Layout>

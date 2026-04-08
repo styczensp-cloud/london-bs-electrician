@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = 'Electrician Dunstable | EICR, Rewires & Consumer Units | London BS Ltd';
+const description = 'London BS Ltd — NICEIC registered electrician based in Dunstable. Specialists in EICR certificates, house rewires, and consumer unit replacements across Dunstable, Luton and Leighton Buzzard.';
+const canonical = 'https://londonbs.uk/';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "London BS Ltd",
+    "description": "NICEIC registered electrician based in Dunstable. Specialists in EICR certificates, house rewires, and consumer unit replacements.",
+    "url": "https://londonbs.uk",
+    "telephone": "07427670610",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10 Meadway",
+      "addressLocality": "Dunstable",
+      "postalCode": "LU6 3JU",
+      "addressCountry": "GB"
+    },
+    "areaServed": ["Dunstable","Luton","Houghton Regis","Leighton Buzzard"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"}]
+  }
+];
+---
+<Layout title={title} description={description} canonical={canonical} schema={schema}>
+
+<section class="hero">
+  <div class="container hero__inner">
+    <p class="hero__label">Dunstable · Luton · Leighton Buzzard</p>
+    <h1 class="hero__title">Qualified electrician in Dunstable — <em>NICEIC registered</em></h1>
+    <p class="hero__body">London BS Ltd carries out EICR certificates, house rewires, and consumer unit replacements across Dunstable and the surrounding area. Properly done, certificated, no fuss.</p>
+    <div class="hero__actions">
+      <a href="/contact" class="btn btn--primary btn--lg">Get a Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+    <div class="hero__trust">
+      <span class="hero__trust-badge">NICEIC Registered</span>
+      <span>All work certificated &middot; Based in Dunstable LU6</span>
+    </div>
+  </div>
+</section>
+
+<div class="trust-bar">
+  <div class="container">
+    <ul class="trust-bar__list">
+      <li><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>NICEIC registered</li>
+      <li><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>EICR certificates issued on completion</li>
+      <li><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Part P notifiable work handled</li>
+      <li><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Landlord &amp; homeowner enquiries welcome</li>
+      <li><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Straightforward quotes</li>
+    </ul>
+  </div>
+</div>
+
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__label">What we do</span>
+      <h2 class="section-head__title">Four services. Done properly.</h2>
+      <p class="section-head__body">We focus on the electrical work that matters most for homeowners and landlords. If you need one of these, we can help.</p>
+    </div>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3 class="service-card__title">EICR</h3>
+        <p class="service-card__body">An Electrical Installation Condition Report checks the safety of the fixed wiring in your property. Required for rental properties and often requested by buyers, sellers, and insurers.</p>
+        <a href="/eicr" class="service-card__link">EICR certificates in Dunstable <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="service-card">
+        <div class="service-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3 class="service-card__title">Landlord EICR</h3>
+        <p class="service-card__body">Private landlords in England must have a valid EICR in place. We carry out landlord electrical inspections and issue certificates that meet the legal requirements.</p>
+        <a href="/landlord-eicr" class="service-card__link">Landlord EICR certificates <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="service-card">
+        <div class="service-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3 class="service-card__title">House Rewires</h3>
+        <p class="service-card__body">Old wiring is a safety risk. A full or partial rewire replaces deteriorated cables and brings your installation up to current standards, with certificates on completion.</p>
+        <a href="/rewires" class="service-card__link">House rewires in Dunstable <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+      <article class="service-card">
+        <div class="service-card__icon"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 11h8M8 15h5"/></svg></div>
+        <h3 class="service-card__title">Consumer Unit Changes</h3>
+        <p class="service-card__body">An old fuse board without proper RCD protection is a common EICR failure point. We replace outdated consumer units with modern boards that meet current safety standards.</p>
+        <a href="/consumer-unit-changes" class="service-card__link">Consumer unit replacements <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <span class="section-head__label">EICR focus</span>
+    <h2 class="section-head__title" style="margin-bottom:0.8rem;">EICR is a legal requirement for landlords</h2>
+    <p style="font-size:0.97rem; color:var(--ink-light); margin-bottom:1rem; line-height:1.74; max-width:620px;">Since 2020, private landlords in England must have an Electrical Installation Condition Report in place and renewed every five years. The certificate must be issued by a qualified person and meet the standards set out in current electrical regulations.</p>
+    <p style="font-size:0.97rem; color:var(--ink-light); margin-bottom:1.35rem; line-height:1.74; max-width:620px;">As a NICEIC registered contractor, London BS Ltd issues EICR certificates that satisfy this requirement. If your EICR is due or overdue, get in touch and we will sort it.</p>
+    <div style="display:flex; gap:0.85rem; flex-wrap:wrap;">
+      <a href="/eicr" class="btn btn--outline-brown">About EICR</a>
+      <a href="/landlord-eicr" class="btn btn--primary">Landlord EICR</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__label">Why choose us</span>
+      <h2 class="section-head__title">What you get from London BS Ltd</h2>
+      <p class="section-head__body">We won't make claims we can't back up. Here is what we genuinely offer on every job.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item"><div class="feature-item__icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div><p class="feature-item__title">NICEIC registered</p><p class="feature-item__body">Our work is assessed and approved by NICEIC. You can verify our registration directly on the NICEIC website.</p></div></div>
+      <div class="feature-item"><div class="feature-item__icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div><div><p class="feature-item__title">Certificates issued</p><p class="feature-item__body">Every job that requires certification — EICR, Electrical Installation Certificate, Part P — is documented properly.</p></div></div>
+      <div class="feature-item"><div class="feature-item__icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div><p class="feature-item__title">Honest pricing</p><p class="feature-item__body">We quote for the job as described. If something changes on site, we discuss it before proceeding.</p></div></div>
+      <div class="feature-item"><div class="feature-item__icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><p class="feature-item__title">Clear timescales</p><p class="feature-item__body">We tell you when we can carry out the work and what is involved before we start.</p></div></div>
+      <div class="feature-item"><div class="feature-item__icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><p class="feature-item__title">Based in Dunstable</p><p class="feature-item__body">Local to Dunstable, Houghton Regis, Luton and Leighton Buzzard. No inflated call-out charges.</p></div></div>
+      <div class="feature-item"><div class="feature-item__icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13 1 .36 1.97.71 2.9a2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 15.1 16.1l.96-.96a2 2 0 0 1 2.11-.45c.93.35 1.9.58 2.9.71a2 2 0 0 1 1.73 2.02Z"/></svg></div><div><p class="feature-item__title">Easy to reach</p><p class="feature-item__body">Call or send an enquiry. We respond promptly and do not pressure or chase.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section accreditations-section">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__label">Accreditations</span>
+      <h2 class="section-head__title">Verified. Registered. Accountable.</h2>
+      <p class="section-head__body">Our NICEIC registration means our work is independently assessed against national standards. You can verify us directly on the NICEIC website.</p>
+    </div>
+    <div class="accreditations-grid">
+      <div class="accreditation-card">
+        <img src="/images/niceic-badge.webp" alt="NICEIC Registered Competent Person Electrical" class="accreditation-card__badge" width="250" height="84" loading="lazy">
+        <div class="accreditation-card__body">
+          <h3 class="accreditation-card__title">NICEIC Registered</h3>
+          <p class="accreditation-card__text">London BS Ltd is a NICEIC Registered Competent Person for electrical work. NICEIC is the UK's leading electrical contracting body — membership requires ongoing assessment of technical competence and compliance with BS 7671 wiring regulations.</p>
+          <ul class="accreditation-card__list">
+            <li>Independently assessed by NICEIC</li>
+            <li>Authorised to self-certify notifiable electrical work (Part P)</li>
+            <li>All work carried out to BS 7671 18th Edition</li>
+            <li>Certificates issued on completion of every job</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__label">Useful information</span>
+      <h2 class="section-head__title">Helpful guides</h2>
+      <p class="section-head__body">Answers to common questions about electrical safety, EICR certificates, and when to get work done.</p>
+    </div>
+    <div class="support-links">
+      <a href="/guides/eicr-codes-explained" class="support-link">EICR codes explained — what C1, C2 and C3 mean <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/guides/what-fails-an-eicr" class="support-link">What commonly fails an EICR <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/guides/how-often-is-an-eicr-needed" class="support-link">How often is an EICR needed? <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/guides/signs-your-house-needs-rewiring" class="support-link">Signs your house may need rewiring <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      <a href="/guides/when-to-replace-a-fuse-box" class="support-link">When to replace your fuse box <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2 class="cta-band__title">Need an electrician in Dunstable?</h2>
+    <p class="cta-band__body">Get in touch for a quote. We cover Dunstable, Houghton Regis, Luton, and Leighton Buzzard.</p>
+    <div class="cta-band__actions">
+      <a href="/contact" class="btn btn--outline btn--lg">Request a Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+
+</Layout>

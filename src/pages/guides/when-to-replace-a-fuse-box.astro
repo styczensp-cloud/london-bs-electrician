@@ -1,0 +1,30 @@
+---
+import Layout from '../../layouts/Layout.astro';
+const title = 'When to Replace a Fuse Box | Consumer Unit Guide | London BS Ltd';
+const description = 'When does a fuse box need replacing? Guide to the signs that a consumer unit is due for replacement — from old rewireable fuses to failed EICRs — in plain English.';
+const canonical = 'https://londonbs.uk/guides/when-to-replace-a-fuse-box';
+const schema = [{"@context":"https://schema.org","@type":"Article","headline":"When to Replace a Fuse Box","publisher":{"@type":"Organization","name":"London BS Ltd","url":"https://londonbs.uk"}},{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://londonbs.uk/"},{"@type":"ListItem","position":2,"name":"Consumer Unit Changes","item":"https://londonbs.uk/consumer-unit-changes"},{"@type":"ListItem","position":3,"name":"When to Replace a Fuse Box","item":"https://londonbs.uk/guides/when-to-replace-a-fuse-box"}]}];
+---
+<Layout title={title} description={description} canonical={canonical} schema={schema}>
+<section class="support-hero"><div class="container"><nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><a href="/consumer-unit-changes">Consumer Unit Changes</a><span>›</span><span aria-current="page">When to Replace a Fuse Box</span></nav><p class="page-hero__label">Guide</p><h1 class="page-hero__title">When to replace a fuse box</h1><p class="page-hero__body">The consumer unit does not last forever. Here is how to tell when it is time to replace one, and what the practical difference is between an old board and a modern one.</p></div></section>
+<section class="section"><div class="container"><div class="support-content">
+<h2>Old rewireable fuses</h2>
+<p>If your fuse box uses rewireable fuse wire rather than miniature circuit breakers (MCBs), it is an old installation — typically from the 1970s or earlier. Rewireable fuses offer significantly less protection than modern MCBs and are almost always found in boards with no RCD protection at all.</p>
+<p>A board with rewireable fuses will typically receive a C2 observation on an <a href="/eicr" class="inline-link">EICR</a> — potentially dangerous — making the outcome unsatisfactory and requiring remedial action.</p>
+<h2>No RCD protection</h2>
+<p>A residual current device (RCD) monitors the current flowing through a circuit and disconnects it in milliseconds if a fault is detected. Current standards require RCD protection on most domestic circuits. Many older consumer units either have no RCD at all, or only a single RCD protecting some circuits. Replacing the consumer unit with a modern dual-RCD or RCBO board resolves this.</p>
+<h2>The board has been flagged on an EICR</h2>
+<p>If an EICR has identified the consumer unit as requiring replacement — coded C1 or C2 — it needs to be replaced. For landlords, this must be completed within 28 days of an unsatisfactory inspection (or sooner if specified in the report).</p>
+<h2>Visible damage, corrosion, or signs of overheating</h2>
+<figure class="content-photo" style="margin:1rem 0 1.5rem;"><img src="/images/2025-12-28.png" alt="Burn damage and heat discolouration on a consumer unit busbar — a dangerous fault requiring immediate replacement"><figcaption>Burn damage at a consumer unit busbar — this type of fault is coded C1 (danger present) and requires immediate attention.</figcaption></figure>
+<p>Visible burn marks, scorch damage, or significant discolouration at the consumer unit are serious warning signs indicating overheating due to loose or corroded connections. A board showing this kind of damage is typically coded C1 in an EICR — danger present. If you can see burn marks or smell burning near your fuse box, do not leave it unattended.</p>
+<h2>The board is overcrowded or has no spare ways</h2>
+<p>A consumer unit that was adequate when installed may now be full, with no room to add circuits for additional sockets, EV chargers, or outbuildings. An overcrowded board with no capacity is a practical reason to replace it.</p>
+<h2>The board is plastic rather than metal-clad</h2>
+<p>Since 2016, consumer units installed in domestic properties in England and Wales are required to have metal enclosures rather than plastic ones. Existing plastic units are not automatically required to be replaced, but if a board is being replaced for any other reason, the replacement must be metal-clad.</p>
+<h2>How is a consumer unit replacement different from a rewire?</h2>
+<p>A consumer unit replacement addresses the distribution board and the protective devices within it. It does not change the condition of the cables feeding into it. If the wiring itself is also old or deteriorated, an <a href="/eicr" class="inline-link">EICR</a> will give you a clear picture of both and indicate which needs to be addressed. If both need attention, we may recommend a <a href="/rewires" class="inline-link">rewire</a> alongside the board replacement.</p>
+<div class="support-cta-box"><p class="support-cta-box__title">Think your consumer unit needs replacing?</p><p class="support-cta-box__body">London BS Ltd carries out consumer unit replacements across Dunstable and the surrounding area. We will advise on what is needed before any work begins.</p><a href="/consumer-unit-changes" class="btn btn--primary">Consumer Unit Changes</a></div>
+</div></div></section>
+<div class="related-strip"><div class="container"><p class="related-strip__label">Related pages</p><div class="related-strip__links"><a href="/consumer-unit-changes" class="btn btn--outline-brown" style="font-size:0.87rem;">Consumer Unit Changes</a><a href="/contact" class="btn btn--outline-brown" style="font-size:0.87rem;">Get a Quote</a></div></div></div>
+</Layout>

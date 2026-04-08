@@ -1,0 +1,50 @@
+---
+const services = [
+  { label: 'EICR',                  href: '/eicr' },
+  { label: 'Landlord EICR',         href: '/landlord-eicr' },
+  { label: 'House Rewires',         href: '/rewires' },
+  { label: 'Consumer Unit Changes', href: '/consumer-unit-changes' },
+];
+const guides = [
+  { label: 'EICR Codes Explained',         href: '/guides/eicr-codes-explained' },
+  { label: 'What Fails an EICR',           href: '/guides/what-fails-an-eicr' },
+  { label: 'How Often Is an EICR Needed',  href: '/guides/how-often-is-an-eicr-needed' },
+  { label: 'Signs Your House Needs Rewiring', href: '/guides/signs-your-house-needs-rewiring' },
+  { label: 'When to Replace a Fuse Box',   href: '/guides/when-to-replace-a-fuse-box' },
+];
+---
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">
+          <img src="/images/logo.webp" alt="London BS Ltd">
+          <span class="footer-logo__name">London BS Ltd</span>
+        </div>
+        <p class="footer-about">NICEIC registered electrician based in Dunstable. EICR certificates, house rewires, and consumer unit replacements across Dunstable, Luton, Houghton Regis and Leighton Buzzard.</p>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col__title">Services</p>
+        <ul>
+          {services.map(({ label, href }) => <li><a href={href}>{label}</a></li>)}
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p class="footer-col__title">Guides</p>
+        <ul>
+          {guides.map(({ label, href }) => <li><a href={href}>{label}</a></li>)}
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <p class="footer-col__title">Contact</p>
+        <p>&#128222; <a href="tel:07427670610">07427 670610</a></p>
+        <p>10 Meadway, Dunstable LU6 3JU</p>
+        <p style="margin-top:0.5rem; font-size:0.8rem;">Managing Director: Lukasz Gryko</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; {new Date().getFullYear()} London BS Ltd. All rights reserved.</span>
+      <span>NICEIC Registered &middot; Registered in England &amp; Wales</span>
+    </div>
+  </div>
+</footer>
