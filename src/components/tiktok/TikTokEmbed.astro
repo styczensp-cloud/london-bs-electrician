@@ -1,0 +1,193 @@
+---
+// To find a video ID: open the TikTok video, copy the URL.
+// e.g. https://www.tiktok.com/@london_bs_ltd/video/7234567890123456789
+// The long number at the end is the video ID.
+//
+// TikTok loads zero JS until the user clicks — preserving Core Web Vitals.
+// The iframe only appears after explicit user interaction.
+
+interface Props {
+  videoId: string;
+  title: string;
+  // Optional: screenshot the TikTok video at ~315×560px, save to /public/images/tiktok/
+  thumbnail?: string;
+  // Optional: direct video URL for the no-JS fallback link
+  videoUrl?: string;
+}
+
+const {
+  videoId,
+  title,
+  thumbnail,
+  videoUrl = `https://www.tiktok.com/@london_bs_ltd/video/${videoId}`,
+} = Astro.props;
+
+const safeTitle = title.replace(/"/g, '&quot;');
+---
+
+<div class="tt-embed" data-video-id={videoId} data-title={safeTitle}>
+  <!-- Thumbnail state (replaced by iframe on click) -->
+  <div class="tt-embed__thumb">
+    {thumbnail ? (
+      <img
+        src={thumbnail}
+        alt={title}
+        class="tt-embed__img"
+        loading="lazy"
+        width="315"
+        height="560"
+        decoding="async"
+      />
+    ) : (
+      <div class="tt-embed__placeholder" aria-hidden="true">
+        <!-- TikTok icon watermark -->
+        <svg width="42" height="42" viewBox="0 0 24 24" fill="rgba(255,255,255,0.07)" aria-hidden="true">
+          <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.79a8.18 8.18 0 0 0 4.78 1.52V6.86a4.85 4.85 0 0 1-1.01-.17z"/>
+        </svg>
+      </div>
+    )}
+
+    <!-- Gradient overlay for title legibility -->
+    <div class="tt-embed__overlay" aria-hidden="true"></div>
+
+    <!-- Video title at bottom -->
+    <p class="tt-embed__title">{title}</p>
+
+    <!-- Load trigger — an <a> so it degrades gracefully without JS -->
+    <a
+      href={videoUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="tt-embed__play"
+      aria-label={`Watch "${title}" on TikTok`}
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <polygon points="5,3 19,12 5,21"/>
+      </svg>
+      <span>Watch</span>
+    </a>
+  </div>
+</div>
+
+<script>
+  // Progressive enhancement: intercept the anchor click and swap in the embed instead.
+  // TikTok JS is never loaded on the page — only a sandboxed iframe per video, on demand.
+  document.querySelectorAll<HTMLElement>('.tt-embed').forEach((card) => {
+    const link = card.querySelector<HTMLAnchorElement>('.tt-embed__play');
+    const videoId = card.dataset.videoId;
+    const title = card.dataset.title ?? 'TikTok video';
+    if (!link || !videoId) return;
+
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const iframe = document.createElement('iframe');
+      iframe.src = `https://www.tiktok.com/embed/v2/${videoId}`;
+      iframe.title = title;
+      iframe.className = 'tt-embed__iframe';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('scrolling', 'no');
+      iframe.setAttribute('allow', 'encrypted-media');
+      iframe.setAttribute('loading', 'lazy');
+
+      const thumb = card.querySelector('.tt-embed__thumb');
+      thumb?.replaceWith(iframe);
+    }, { once: true });
+  });
+</script>
+
+<style>
+  .tt-embed {
+    border-radius: 8px;
+    overflow: hidden;
+    background: #111;
+    aspect-ratio: 9 / 16;
+    position: relative;
+  }
+
+  /* --- Thumbnail state --- */
+  .tt-embed__thumb {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tt-embed__img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tt-embed__placeholder {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, #1c1510 0%, #111 60%, #0d0d0d 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tt-embed__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(0,0,0,0.72) 0%,
+      rgba(0,0,0,0.22) 40%,
+      transparent 70%
+    );
+  }
+
+  .tt-embed__title {
+    position: absolute;
+    bottom: 0.7rem;
+    left: 0.65rem;
+    right: 0.65rem;
+    z-index: 2;
+    font-size: 0.74rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.82);
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  /* Play / load button */
+  .tt-embed__play {
+    position: relative;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: rgba(238, 29, 82, 0.9);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 0.9rem;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.04em;
+    transition: background 0.16s ease, transform 0.16s ease;
+  }
+
+  .tt-embed__play:hover {
+    background: rgba(238, 29, 82, 1);
+    transform: scale(1.05);
+  }
+
+  /* --- Iframe state --- */
+  .tt-embed__iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+  }
+</style>

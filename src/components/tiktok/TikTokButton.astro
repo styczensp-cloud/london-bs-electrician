@@ -1,0 +1,53 @@
+---
+interface Props {
+  label?: string;
+  class?: string;
+}
+
+const { label = 'Follow on TikTok', class: className = '' } = Astro.props;
+---
+
+<a
+  href="https://www.tiktok.com/@london_bs_ltd"
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={['tt-btn', className]}
+  aria-label="Follow London BS Ltd on TikTok (opens in new tab)"
+>
+  <!-- TikTok logo -->
+  <svg class="tt-btn__icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.32 6.32 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.79a8.18 8.18 0 0 0 4.78 1.52V6.86a4.85 4.85 0 0 1-1.01-.17z"/>
+  </svg>
+  <span>{label}</span>
+  <svg class="tt-btn__arrow" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M7 17L17 7M17 7H7M17 7v10"/>
+  </svg>
+</a>
+
+<style>
+  .tt-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.6rem 1.2rem;
+    background: #000;
+    color: #fff;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.14);
+    transition: background 0.18s ease, transform 0.18s ease, border-color 0.18s ease;
+  }
+
+  .tt-btn:hover {
+    background: #1a1a1a;
+    border-color: rgba(255,255,255,0.28);
+    transform: translateY(-1px);
+  }
+
+  .tt-btn__icon { flex-shrink: 0; }
+  .tt-btn__arrow { flex-shrink: 0; opacity: 0.55; }
+</style>
