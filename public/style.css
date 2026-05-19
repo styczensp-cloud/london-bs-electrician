@@ -125,7 +125,32 @@ ul { list-style: none; }
   background: radial-gradient(circle, rgba(160,120,80,0.12) 0%, transparent 70%);
   pointer-events: none;
 }
-.hero__inner { position: relative; z-index: 1; }
+.hero__inner {
+  position: relative; z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: center;
+}
+@media (max-width: 860px) {
+  .hero__inner { grid-template-columns: 1fr; gap: 0; }
+  .hero__right { display: none; }
+}
+.hero__proof-card {
+  margin: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.09);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+}
+.hero__proof-card img { display: block; width: 100%; height: auto; }
+.hero__proof-card figcaption {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.28);
+  padding: 0.45rem 0.7rem;
+  background: rgba(0,0,0,0.3);
+  letter-spacing: 0.04em;
+}
 .hero__label {
   display: inline-flex; align-items: center; gap: 0.5rem;
   font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
