@@ -1,47 +1,64 @@
 ---
+import { locations } from '../data/locations';
+
 const services = [
-  { label: 'EICR',                    href: '/eicr' },
-  { label: 'Landlord EICR',           href: '/landlord-eicr' },
-  { label: 'House Rewires',           href: '/rewires' },
-  { label: 'Consumer Unit Changes',   href: '/consumer-unit-changes' },
-  { label: 'Air Conditioning',        href: '/air-conditioning' },
+  { label: 'EICR Reports',             href: '/eicr' },
+  { label: 'Landlord EICR',            href: '/landlord-eicr' },
+  { label: 'House Rewires',            href: '/rewires' },
+  { label: 'Consumer Unit Changes',    href: '/consumer-unit-changes' },
+  { label: 'Air Conditioning',         href: '/air-conditioning' },
 ];
 const guides = [
-  { label: 'EICR Codes Explained',         href: '/guides/eicr-codes-explained' },
-  { label: 'What Fails an EICR',           href: '/guides/what-fails-an-eicr' },
-  { label: 'How Often Is an EICR Needed',  href: '/guides/how-often-is-an-eicr-needed' },
+  { label: 'EICR Codes Explained',           href: '/guides/eicr-codes-explained' },
+  { label: 'What Fails an EICR',             href: '/guides/what-fails-an-eicr' },
+  { label: 'How Often Is an EICR Needed',    href: '/guides/how-often-is-an-eicr-needed' },
   { label: 'Signs Your House Needs Rewiring', href: '/guides/signs-your-house-needs-rewiring' },
-  { label: 'When to Replace a Fuse Box',   href: '/guides/when-to-replace-a-fuse-box' },
+  { label: 'When to Replace a Fuse Box',     href: '/guides/when-to-replace-a-fuse-box' },
 ];
 ---
 <footer class="site-footer">
   <div class="container">
     <div class="footer-grid">
+
       <div>
         <div class="footer-logo">
           <img src="/images/logo.webp" alt="London BS Ltd">
           <span class="footer-logo__name">London BS Ltd</span>
         </div>
-        <p class="footer-about">NICEIC registered electrician and F-Gas registered engineer based in Dunstable. EICR certificates, house rewires, consumer unit replacements, and air conditioning installation across Dunstable, Luton, Houghton Regis and Leighton Buzzard.</p>
+        <p class="footer-about">NICEIC registered electrician and F-Gas registered engineer based in Dunstable. EICR reports, consumer unit upgrades, house rewires and fault finding across Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis.</p>
       </div>
+
       <div class="footer-col">
         <p class="footer-col__title">Services</p>
         <ul>
           {services.map(({ label, href }) => <li><a href={href}>{label}</a></li>)}
         </ul>
       </div>
+
       <div class="footer-col">
         <p class="footer-col__title">Guides</p>
         <ul>
           {guides.map(({ label, href }) => <li><a href={href}>{label}</a></li>)}
         </ul>
       </div>
+
+      <div class="footer-col">
+        <p class="footer-col__title">Service Areas</p>
+        <ul>
+          {locations.map(loc => (
+            <li><a href={`/${loc.slug}`}>{loc.name}</a></li>
+          ))}
+          <li><a href="/service-areas">All areas &rarr;</a></li>
+        </ul>
+      </div>
+
       <div class="footer-col footer-contact">
         <p class="footer-col__title">Contact</p>
         <p>&#128222; <a href="tel:07427670610">07427 670610</a></p>
         <p>10 Meadway, Dunstable LU6 3JU</p>
         <p style="margin-top:0.5rem; font-size:0.8rem;">Managing Director: Lukasz Gryko</p>
       </div>
+
     </div>
     <div class="footer-bottom">
       <span>&copy; {new Date().getFullYear()} London BS Ltd. All rights reserved.</span>

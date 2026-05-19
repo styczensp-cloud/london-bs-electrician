@@ -226,6 +226,34 @@ ul { list-style: none; }
 /* ============================================================
    SUPPORT LINKS
    ============================================================ */
+/* ============================================================
+   SERVICE AREA LINKS (homepage)
+   ============================================================ */
+.area-links {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.65rem;
+}
+@media (min-width: 560px) { .area-links { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 860px) { .area-links { grid-template-columns: repeat(5, 1fr); } }
+
+.area-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--light-border);
+  border-radius: var(--radius);
+  background: var(--white);
+  text-decoration: none;
+  color: inherit;
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+}
+.area-link:hover { border-color: var(--brown); box-shadow: var(--shadow); transform: translateY(-1px); }
+.area-link svg { color: var(--brown); margin-top: 0.4rem; }
+.area-link__post { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brown); }
+.area-link__name { font-size: 0.97rem; font-weight: 600; color: var(--ink); }
+
 .support-links { display: grid; gap: 0.7rem; grid-template-columns: 1fr; }
 .support-link {
   display: flex; align-items: center; justify-content: space-between;
@@ -448,7 +476,7 @@ ul { list-style: none; }
   .features-grid { grid-template-columns: repeat(3, 1fr); }
   .service-layout { grid-template-columns: 1fr 300px; }
   .contact-grid { grid-template-columns: 1fr 1.6fr; }
-  .footer-grid { grid-template-columns: 1.8fr 1fr 1fr 1.4fr; }
+  .footer-grid { grid-template-columns: 1.6fr 1fr 1fr 1fr 1.1fr; }
   .hamburger { display: none !important; }
   .mobile-nav { display: none !important; }
   .desktop-nav { display: flex !important; }

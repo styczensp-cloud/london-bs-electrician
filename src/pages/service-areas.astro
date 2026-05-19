@@ -1,0 +1,207 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { locations } from '../data/locations';
+
+const title = 'Service Areas | Electrician Dunstable, Luton & Milton Keynes | London BS Ltd';
+const description = 'London BS Ltd covers Dunstable, Luton, Milton Keynes, Leighton Buzzard, Houghton Regis and surrounding areas for EICR reports, consumer unit upgrades, rewires and electrical work.';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": `${site}/` },
+      { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${site}/service-areas` },
+    ],
+  },
+];
+
+const additionalAreas = [
+  'Toddington', 'Harpenden', 'St Albans', 'Hemel Hempstead',
+  'Flitwick', 'Ampthill', 'Bedford', 'Bletchley', 'Newport Pagnell',
+];
+---
+
+<Layout title={title} description={description} schema={schema}>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="page-hero__breadcrumb">
+      <a href="/">Home</a><span>›</span><span aria-current="page">Service Areas</span>
+    </nav>
+    <p class="page-hero__label">Where we work</p>
+    <h1 class="page-hero__title">Areas we cover</h1>
+    <p class="page-hero__body">London BS Ltd is based in Dunstable and covers the surrounding area for EICR reports, consumer unit upgrades, rewires, fault finding and electrical work. Selected London projects by arrangement.</p>
+    <div class="page-hero__cta">
+      <a href="/contact" class="btn btn--primary btn--lg">Get a Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="section-head" style="margin-bottom:2rem;">
+      <span class="section-head__label">Main service areas</span>
+      <h2 class="section-head__title">Where we work</h2>
+      <p class="section-head__body">We cover these areas as standard. If your location is not listed, contact us — we cover additional areas by arrangement.</p>
+    </div>
+
+    <div class="location-grid">
+      {locations.map(loc => (
+        <a href={`/${loc.slug}`} class="location-card">
+          <div class="location-card__postcode">{loc.postcode}</div>
+          <h3 class="location-card__name">{loc.name}</h3>
+          <p class="location-card__county">{loc.county}</p>
+          <ul class="location-card__services">
+            <li>EICR reports</li>
+            <li>Consumer unit upgrades</li>
+            <li>Fault finding</li>
+            <li>House rewires</li>
+          </ul>
+          <span class="location-card__link">View details <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        </a>
+      ))}
+    </div>
+
+    <div style="margin-top:3rem;">
+      <h2 class="section-head__title" style="font-size:1.35rem; margin-bottom:0.65rem;">Additional areas covered</h2>
+      <p style="font-size:0.94rem; color:var(--ink-light); margin-bottom:1rem; max-width:580px;">We also cover these areas and are happy to travel further for larger jobs. Contact us to confirm availability for your location.</p>
+      <ul class="areas-list">
+        {additionalAreas.map(area => (
+          <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>{area}</li>
+        ))}
+        <li><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Selected London projects by arrangement</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2 class="cta-band__title">Not sure if we cover your area?</h2>
+    <p class="cta-band__body">Contact us with your postcode and we'll confirm whether we can help.</p>
+    <div class="cta-band__actions">
+      <a href="/contact" class="btn btn--outline btn--lg">Send an Enquiry</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+
+</Layout>
+
+<style>
+  .location-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  @media (max-width: 720px) {
+    .location-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 460px) {
+    .location-grid { grid-template-columns: 1fr; }
+  }
+
+  .location-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    padding: 1.35rem;
+    border: 1px solid var(--light-border);
+    border-radius: var(--radius);
+    background: var(--white);
+    text-decoration: none;
+    color: inherit;
+    transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
+  }
+
+  .location-card:hover {
+    border-color: var(--brown);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .location-card__postcode {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 0.1rem;
+  }
+
+  .location-card__name {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+    margin: 0;
+  }
+
+  .location-card__county {
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    margin: 0 0 0.5rem;
+  }
+
+  .location-card__services {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 0.75rem;
+    flex: 1;
+  }
+
+  .location-card__services li {
+    font-size: 0.8rem;
+    color: var(--ink-light);
+  }
+
+  .location-card__services li::before {
+    content: '· ';
+    color: var(--brown);
+  }
+
+  .location-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--brown);
+    margin-top: auto;
+  }
+
+  .areas-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .areas-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.88rem;
+    color: var(--ink-light);
+    font-weight: 500;
+  }
+
+  .areas-list li svg {
+    color: var(--brown);
+    flex-shrink: 0;
+  }
+</style>

@@ -1,0 +1,7 @@
+---
+import LocationPage from '../components/LocationPage.astro';
+import { locations } from '../data/locations';
+
+const location = locations.find(l => l.slug === 'electrician-dunstable')!;
+---
+<LocationPage location={location} />

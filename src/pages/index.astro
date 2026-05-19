@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import TikTokSection from '../components/tiktok/TikTokSection.astro';
 import LukasSection from '../components/LukasSection.astro';
+import { locations } from '../data/locations';
 
 const title = 'Electrician Dunstable, Luton & Milton Keynes | EICR Reports | London BS Ltd';
 const description = 'NICEIC registered electrician based in Dunstable. EICR reports, consumer unit upgrades, house rewires and fault finding across Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis.';
@@ -212,10 +213,32 @@ const schema = [
   </div>
 </section>
 
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-head__label">Where we work</span>
+      <h2 class="section-head__title">Service areas</h2>
+      <p class="section-head__body">Based in Dunstable, we cover the surrounding area for EICR reports, consumer unit upgrades, rewires and fault finding.</p>
+    </div>
+    <div class="area-links">
+      {locations.map(loc => (
+        <a href={`/${loc.slug}`} class="area-link">
+          <span class="area-link__post">{loc.postcode}</span>
+          <span class="area-link__name">{loc.name}</span>
+          <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      ))}
+    </div>
+    <p style="font-size:0.84rem; color:var(--ink-light); margin-top:1.25rem;">
+      We also cover Toddington, Harpenden, St Albans, Hemel Hempstead, Flitwick, Ampthill, Bedford, Bletchley and surrounding areas. Selected London projects by arrangement. <a href="/service-areas" style="color:var(--brown); font-weight:600;">View all service areas →</a>
+    </p>
+  </div>
+</section>
+
 <section class="cta-band">
   <div class="container">
-    <h2 class="cta-band__title">Need an electrician in Dunstable?</h2>
-    <p class="cta-band__body">Get in touch for a quote. We cover Dunstable, Houghton Regis, Luton, and Leighton Buzzard.</p>
+    <h2 class="cta-band__title">Need an electrician in Dunstable, Luton or Milton Keynes?</h2>
+    <p class="cta-band__body">Get in touch for a quote. We cover Dunstable, Luton, Milton Keynes, Leighton Buzzard, Houghton Regis and surrounding areas.</p>
     <div class="cta-band__actions">
       <a href="/contact" class="btn btn--outline btn--lg">Request a Quote</a>
       <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
