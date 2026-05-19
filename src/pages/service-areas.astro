@@ -16,6 +16,17 @@ const schema = [
       { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": `${site}/service-areas` },
     ],
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Electrical service areas — London BS Ltd",
+    "itemListElement": locations.map((loc, i) => ({
+      "@type": "ListItem",
+      "position": i + 1,
+      "name": `Electrician in ${loc.name}`,
+      "url": `${site}/${loc.slug}`,
+    })),
+  },
 ];
 
 const additionalAreas = [
@@ -32,8 +43,8 @@ const additionalAreas = [
       <a href="/">Home</a><span>›</span><span aria-current="page">Service Areas</span>
     </nav>
     <p class="page-hero__label">Where we work</p>
-    <h1 class="page-hero__title">Areas we cover</h1>
-    <p class="page-hero__body">London BS Ltd is based in Dunstable and covers the surrounding area for EICR reports, consumer unit upgrades, rewires, fault finding and electrical work. Selected London projects by arrangement.</p>
+    <h1 class="page-hero__title">Areas We Cover</h1>
+    <p class="page-hero__body">London BS Ltd provides EICR reports, consumer unit upgrades, rewires, fault finding and electrical work across Dunstable, Luton, Milton Keynes, Leighton Buzzard, Houghton Regis and nearby areas. Selected London projects by arrangement.</p>
     <div class="page-hero__cta">
       <a href="/contact" class="btn btn--primary btn--lg">Get a Quote</a>
       <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
@@ -67,7 +78,34 @@ const additionalAreas = [
       ))}
     </div>
 
-    <div style="margin-top:3rem;">
+    <div style="margin-top:3rem; margin-bottom:2.5rem;">
+      <h2 class="section-head__title" style="font-size:1.35rem; margin-bottom:0.65rem;">Electrical services we provide</h2>
+      <p style="font-size:0.94rem; color:var(--ink-light); margin-bottom:1.1rem; max-width:580px;">We carry out the following across all our main service areas.</p>
+      <div class="services-links">
+        <a href="/eicr" class="service-link-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          EICR Reports
+        </a>
+        <a href="/landlord-eicr" class="service-link-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Landlord EICR
+        </a>
+        <a href="/consumer-unit-changes" class="service-link-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Consumer Unit Upgrades
+        </a>
+        <a href="/rewires" class="service-link-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          House Rewires
+        </a>
+        <a href="/contact" class="service-link-item">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          Fault Finding &amp; Emergency Work — enquire via contact
+        </a>
+      </div>
+    </div>
+
+    <div style="margin-top:0;">
       <h2 class="section-head__title" style="font-size:1.35rem; margin-bottom:0.65rem;">Additional areas covered</h2>
       <p style="font-size:0.94rem; color:var(--ink-light); margin-bottom:1rem; max-width:580px;">We also cover these areas and are happy to travel further for larger jobs. Contact us to confirm availability for your location.</p>
       <ul class="areas-list">
@@ -204,4 +242,26 @@ const additionalAreas = [
     color: var(--brown);
     flex-shrink: 0;
   }
+
+  .services-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .service-link-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    padding: 0.3rem 0;
+    border-bottom: 1px solid transparent;
+    transition: color var(--transition);
+  }
+
+  .service-link-item svg { color: var(--brown); flex-shrink: 0; }
+  .service-link-item:hover { color: var(--brown); }
 </style>
