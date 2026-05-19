@@ -1,0 +1,136 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = 'Emergency Electrician Dunstable, Luton & Milton Keynes | London BS Ltd';
+const description = 'Emergency electrician covering Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis. Call 07427 670610 for urgent electrical faults, power failures and suspected unsafe wiring.';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Emergency Electrician",
+    "provider": {"@id": `${site}/#business`},
+    "areaServed": [
+      {"@type":"City","name":"Dunstable"},{"@type":"City","name":"Luton"},
+      {"@type":"City","name":"Milton Keynes"},{"@type":"City","name":"Leighton Buzzard"},
+      {"@type":"City","name":"Houghton Regis"}
+    ],
+    "serviceType": "Emergency Electrical Work"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},
+      {"@type":"ListItem","position":2,"name":"Emergency Electrician","item":`${site}/emergency-electrician`}
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What should I do if there is a burning smell from my electrics?","acceptedAnswer":{"@type":"Answer","text":"Switch off the main isolator at the consumer unit immediately and do not use any part of the electrical installation until it has been inspected. Call us directly on 07427 670610."}},
+      {"@type":"Question","name":"My circuit breaker keeps tripping — is this an emergency?","acceptedAnswer":{"@type":"Answer","text":"If you can reset the circuit and it stays on, it is not an immediate emergency but should be investigated soon. If it trips again immediately or repeatedly, that is a fault requiring prompt attention — contact us."}},
+      {"@type":"Question","name":"I received a small shock from a socket — what should I do?","acceptedAnswer":{"@type":"Answer","text":"Do not use the socket. Switch off the circuit at the consumer unit. This is a genuine electrical fault requiring inspection — call us directly."}},
+      {"@type":"Question","name":"Do you cover emergency electrical work in Luton and Milton Keynes?","acceptedAnswer":{"@type":"Answer","text":"Yes. We cover Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis for emergency electrical work."}},
+      {"@type":"Question","name":"How do I isolate my electricity supply in an emergency?","acceptedAnswer":{"@type":"Answer","text":"The main isolator switch is in your consumer unit — typically a large switch at the top left of the board. Switching it off cuts power to the whole property. If you are unsure where your consumer unit is or cannot reach it safely, do not attempt to work near the electrical installation."}}
+    ]
+  }
+];
+---
+<Layout title={title} description={description} schema={schema}>
+<section class="page-hero">
+  <div class="container">
+    <nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><span aria-current="page">Emergency Electrician</span></nav>
+    <p class="page-hero__label">Emergency Electrical Work · Dunstable · Luton · Milton Keynes</p>
+    <h1 class="page-hero__title">Emergency Electrician in Dunstable, Luton &amp; Milton Keynes</h1>
+    <p class="page-hero__body">For urgent electrical faults across Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis — call us directly. We cover power failures, burning smells, suspected unsafe faults and situations where the electrical installation may be dangerous.</p>
+    <div class="page-hero__cta">
+      <a href="tel:07427670610" class="btn btn--primary btn--lg">Call 07427 670610</a>
+      <a href="/contact" class="btn btn--outline btn--lg">Send an Enquiry</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-layout">
+      <div class="content-body">
+
+        <h2>When to call an emergency electrician</h2>
+        <p>Not every electrical problem is an emergency. The distinction matters — both for your safety and to ensure you get the right response. These situations warrant an immediate call:</p>
+        <ul class="check">
+          <li><strong>Burning smell</strong> from sockets, the consumer unit, or anywhere in the wiring — switch off the main isolator and call immediately</li>
+          <li><strong>Sparking</strong> from sockets, switches, or the consumer unit</li>
+          <li><strong>Electric shock</strong> received from any socket, switch, or fitting — do not use it again until inspected</li>
+          <li><strong>Total loss of power</strong> that cannot be restored by resetting the consumer unit, and where there is no obvious external cause (e.g. a street-level power cut)</li>
+          <li><strong>Fittings that are hot to the touch</strong> — sockets, switches, or the consumer unit cover running hot indicates a fault</li>
+          <li><strong>Flooding that has reached electrical fittings</strong> or the consumer unit — do not restore power until the installation has been inspected</li>
+          <li><strong>Visible damage to wiring</strong> — exposed conductors, melted insulation, or charring near any fitting</li>
+        </ul>
+
+        <h2>Situations that can wait</h2>
+        <p>The following are faults, but not emergencies. They can be booked as standard fault-finding appointments:</p>
+        <ul class="check">
+          <li>A single circuit that has tripped and can be reset without immediately tripping again</li>
+          <li>A failed light fitting or lamp</li>
+          <li>A socket that has stopped working but shows no heat, smell, or sparking</li>
+          <li>An EICR that is overdue for renewal</li>
+          <li>Intermittent power issues that do not involve burning smells or shocks</li>
+        </ul>
+        <p>If you are unsure whether your situation is urgent, call us — we will help you assess it over the phone.</p>
+
+        <h2>What to do while waiting</h2>
+        <ul class="check">
+          <li>If there is a burning smell or visible sparking: <strong>switch off the main isolator</strong> at the consumer unit and do not restore power until the fault is identified</li>
+          <li>Do not use the affected circuit or fitting under any circumstances</li>
+          <li>Do not attempt to investigate wiring yourself — fault-finding requires test equipment and knowledge of how the installation is wired</li>
+          <li>If the situation involves fire or immediate danger, call 999 first</li>
+        </ul>
+
+        <h2>Where the main isolator is</h2>
+        <p>Your main isolator is the large switch — usually at the top left of the consumer unit (fuse box). It is typically labelled "Main Switch" or "Isolator". Switching it off cuts power to the entire property. Your consumer unit is usually located in the hallway, under the stairs, in the kitchen, or in a utility area.</p>
+
+        <h2>Our response area</h2>
+        <p>We cover Dunstable, Luton, Milton Keynes, Leighton Buzzard, Houghton Regis and surrounding areas. Call us directly on <a href="tel:07427670610" class="inline-link">07427 670610</a> for the fastest response. For non-urgent enquiries, use the contact form.</p>
+
+        <h2 style="margin-top:2.5rem;">Frequently asked questions</h2>
+        <div class="faq-list" style="margin-top:1rem;">
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">What should I do if there is a burning smell from my electrics?<span class="faq-icon">+</span></button><div class="faq-a">Switch off the main isolator at the consumer unit immediately and do not use any part of the electrical installation until it has been inspected. Call us directly on 07427 670610.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">My circuit breaker keeps tripping — is this an emergency?<span class="faq-icon">+</span></button><div class="faq-a">If you can reset it and it stays on, book a fault-finding visit rather than treating it as an immediate emergency. If it trips again instantly, or trips on a circuit with no obvious load on it, call us promptly — that indicates a fault requiring investigation.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">I received a small shock from a socket — what should I do?<span class="faq-icon">+</span></button><div class="faq-a">Do not use the socket again. Switch off the circuit at the consumer unit if you can identify it. This is a genuine fault — call us directly. Any shock from an electrical fitting indicates an earth fault that needs immediate attention.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you cover emergency electrical work in Luton and Milton Keynes?<span class="faq-icon">+</span></button><div class="faq-a">Yes. We cover Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis. Call 07427 670610 directly for the fastest response.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">How do I isolate the electricity supply in an emergency?<span class="faq-icon">+</span></button><div class="faq-a">The main isolator switch is in your consumer unit — typically a large switch at the top of the board labelled "Main Switch." Switching it off cuts power to the whole property. If you cannot safely reach the consumer unit, do not attempt to access it yourself.</div></div>
+        </div>
+
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <p class="sidebar-box__title">Urgent electrical fault?</p>
+          <p class="sidebar-box__body">Call us directly for the fastest response. We cover Dunstable, Luton and Milton Keynes.</p>
+          <a href="tel:07427670610" class="sidebar-box__phone" style="margin-bottom:1rem;"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13 1 .36 1.97.71 2.9a2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 15.1 16.1l.96-.96a2 2 0 0 1 2.11-.45c.93.35 1.9.58 2.9.71a2 2 0 0 1 1.73 2.02Z"/></svg>07427 670610</a>
+          <a href="/contact" class="btn btn--primary" style="width:100%;">Send an Enquiry</a>
+          <div class="sidebar-related">
+            <p class="sidebar-related__label">Related pages</p>
+            <a href="/fault-finding"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Electrical Fault Finding</a>
+            <a href="/eicr"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>EICR Reports</a>
+            <a href="/consumer-unit-upgrades"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Consumer Unit Upgrades</a>
+            <a href="/service-areas"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Service Areas</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2 class="cta-band__title">Urgent electrical problem in Dunstable, Luton or Milton Keynes?</h2>
+    <p class="cta-band__body">Call us directly for the fastest response. We cover Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis.</p>
+    <div class="cta-band__actions">
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+      <a href="/contact" class="btn btn--outline btn--lg">Send an Enquiry</a>
+    </div>
+  </div>
+</section>
+</Layout>

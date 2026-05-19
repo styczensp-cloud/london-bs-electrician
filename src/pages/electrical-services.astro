@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = 'Electrical Services | NICEIC Registered Electrician | London BS Ltd';
+const description = 'London BS Ltd provides EICR reports, consumer unit upgrades, fault finding, house rewires and emergency electrical work across Dunstable, Luton and Milton Keynes. NICEIC registered.';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Electrical Services — London BS Ltd",
+    "provider": {"@id": `${site}/#business`},
+    "areaServed": [
+      {"@type":"City","name":"Dunstable"},{"@type":"City","name":"Luton"},
+      {"@type":"City","name":"Milton Keynes"},{"@type":"City","name":"Leighton Buzzard"},
+      {"@type":"City","name":"Houghton Regis"}
+    ],
+    "serviceType": "Electrical Contractor"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},
+      {"@type":"ListItem","position":2,"name":"Electrical Services","item":`${site}/electrical-services`}
+    ]
+  }
+];
+
+const services = [
+  {
+    href: '/eicr',
+    label: 'EICR Reports',
+    body: 'Electrical Installation Condition Reports for homeowners, landlords and property buyers. Required for rental properties every five years. Reports issued on the day.',
+    icon: `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>`,
+  },
+  {
+    href: '/landlord-eicr',
+    label: 'Landlord EICR',
+    body: 'Private landlords in England must hold a valid EICR renewed every five years. We carry out landlord inspections and issue compliant reports.',
+    icon: `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>`,
+  },
+  {
+    href: '/consumer-unit-upgrades',
+    label: 'Consumer Unit Upgrades',
+    body: 'Replacing outdated fuseboards with modern consumer units that include full RCD and RCBO protection. Notifiable work certificated on completion.',
+    icon: `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2M8 11h8M8 15h5"/></svg>`,
+  },
+  {
+    href: '/fault-finding',
+    label: 'Fault Finding',
+    body: 'Tracing and repairing electrical faults — RCD tripping, dead circuits, intermittent power loss and partial failures. Methodical diagnosis using calibrated test equipment.',
+    icon: `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35M11 8v3l2 2"/></svg>`,
+  },
+  {
+    href: '/rewires',
+    label: 'House Rewires',
+    body: 'Full and partial house rewires for older properties with deteriorated or non-compliant wiring. Electrical Installation Certificate issued on completion.',
+    icon: `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>`,
+  },
+  {
+    href: '/emergency-electrician',
+    label: 'Emergency Electrician',
+    body: 'Urgent electrical faults — burning smells, sparking, power failures, shocks from fittings. Call us directly for the fastest response.',
+    icon: `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>`,
+  },
+  {
+    href: '/air-conditioning-installation',
+    label: 'Air Conditioning Installation',
+    body: 'Single and multi-split systems for homes and small businesses. F-Gas registered. Supplied, installed and commissioned — electrical connection included.',
+    icon: `<svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/></svg>`,
+  },
+];
+---
+<Layout title={title} description={description} schema={schema}>
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><span aria-current="page">Electrical Services</span></nav>
+    <p class="page-hero__label">NICEIC Registered · Dunstable · Luton · Milton Keynes</p>
+    <h1 class="page-hero__title">Electrical Services in Dunstable, Luton &amp; Milton Keynes</h1>
+    <p class="page-hero__body">London BS Ltd is a NICEIC registered electrical contractor based in Dunstable. We carry out EICR reports, consumer unit upgrades, fault finding, rewires and emergency electrical work across Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis.</p>
+    <div class="page-hero__cta">
+      <a href="/contact" class="btn btn--primary btn--lg">Get a Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+
+    <div class="niceic-note" style="margin-bottom:2.5rem;">
+      <span class="niceic-note__badge">NICEIC Registered</span>
+      <span class="niceic-note__text">All electrical work carried out by London BS Ltd is completed by a NICEIC registered electrician. Work is certificated and, where required, notified to Building Control under Part P.</span>
+    </div>
+
+    <div class="services-grid">
+      {services.map(({ href, label, body, icon }) => (
+        <article class="service-card">
+          <div class="service-card__icon" set:html={icon} />
+          <h2 class="service-card__title">{label}</h2>
+          <p class="service-card__body">{body}</p>
+          <a href={href} class="service-card__link">
+            {label} <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </article>
+      ))}
+    </div>
+
+    <div class="es-footer">
+      <div class="es-footer__areas">
+        <h2 class="es-footer__heading">Service areas</h2>
+        <p>We cover <strong>Dunstable</strong>, <strong>Luton</strong>, <strong>Milton Keynes</strong>, <strong>Leighton Buzzard</strong> and <strong>Houghton Regis</strong> as standard, with additional coverage across Toddington, Harpenden, St Albans, Hemel Hempstead, Flitwick, Ampthill, Bedford and Bletchley. Selected London projects by arrangement.</p>
+        <a href="/service-areas" class="service-card__link" style="margin-top:0.5rem; display:inline-flex;">View all service areas <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="es-footer__cta">
+        <h2 class="es-footer__heading">Get a quote</h2>
+        <p>Call us on <a href="tel:07427670610" style="color:var(--brown); font-weight:600;">07427 670610</a> or use the contact form.</p>
+        <a href="/contact" class="btn btn--primary" style="margin-top:0.75rem;">Send an Enquiry</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2 class="cta-band__title">Need an electrician in Dunstable, Luton or Milton Keynes?</h2>
+    <p class="cta-band__body">NICEIC registered. All work certificated. Get in touch for a clear quote.</p>
+    <div class="cta-band__actions">
+      <a href="/contact" class="btn btn--outline btn--lg">Request a Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+
+</Layout>
+
+<style>
+  .es-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--light-border);
+  }
+
+  @media (max-width: 600px) {
+    .es-footer { grid-template-columns: 1fr; }
+  }
+
+  .es-footer__heading {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .es-footer p {
+    font-size: 0.93rem;
+    color: var(--ink-light);
+    line-height: 1.7;
+    margin: 0;
+  }
+</style>

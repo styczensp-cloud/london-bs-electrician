@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+const title = 'Electrical Fault Finding | Dunstable, Luton & Milton Keynes | London BS Ltd';
+const description = 'Electrical fault finding across Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis. We trace and repair RCD tripping, dead circuits, intermittent faults and power loss.';
+
+const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Electrical Fault Finding",
+    "provider": {"@id": `${site}/#business`},
+    "areaServed": [
+      {"@type":"City","name":"Dunstable"},{"@type":"City","name":"Luton"},
+      {"@type":"City","name":"Milton Keynes"},{"@type":"City","name":"Leighton Buzzard"},
+      {"@type":"City","name":"Houghton Regis"}
+    ],
+    "serviceType": "Electrical Fault Finding"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},
+      {"@type":"ListItem","position":2,"name":"Fault Finding","item":`${site}/fault-finding`}
+    ]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"What if the fault is intermittent?","acceptedAnswer":{"@type":"Answer","text":"Intermittent faults are approached methodically. Where a fault cannot be reproduced during a visit, we will discuss realistic options with you and advise on the most practical next steps."}},
+      {"@type":"Question","name":"Can you fix the fault on the same visit?","acceptedAnswer":{"@type":"Answer","text":"In many cases yes. Where the fault requires parts or more extensive work, we will advise you of what is needed and confirm costs before proceeding."}},
+      {"@type":"Question","name":"Is fault finding different from an EICR?","acceptedAnswer":{"@type":"Answer","text":"Yes. Fault finding targets a specific known problem. An EICR is a full condition report of the entire electrical installation, whether or not a specific fault is present."}},
+      {"@type":"Question","name":"My RCD keeps tripping — is this a fault?","acceptedAnswer":{"@type":"Answer","text":"Yes. An RCD that trips repeatedly indicates an earth leakage fault on one or more circuits. We can trace the affected circuit and carry out the necessary repair."}},
+      {"@type":"Question","name":"Do you cover fault finding in Luton and Milton Keynes?","acceptedAnswer":{"@type":"Answer","text":"Yes. We carry out fault finding across Dunstable, Luton, Milton Keynes, Leighton Buzzard, Houghton Regis and surrounding areas."}}
+    ]
+  }
+];
+---
+<Layout title={title} description={description} schema={schema}>
+<section class="page-hero">
+  <div class="container">
+    <nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><span aria-current="page">Fault Finding</span></nav>
+    <p class="page-hero__label">Fault Finding · Dunstable · Luton · Milton Keynes</p>
+    <h1 class="page-hero__title">Electrical Fault Finding in Dunstable, Luton &amp; Milton Keynes</h1>
+    <p class="page-hero__body">We trace and repair electrical faults across Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis — RCD tripping, dead circuits, intermittent faults and partial power loss. We identify root causes, not just reset breakers.</p>
+    <div class="page-hero__cta">
+      <a href="/contact" class="btn btn--primary btn--lg">Get a Quote</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="service-layout">
+      <div class="content-body">
+
+        <div class="niceic-note">
+          <span class="niceic-note__badge">NICEIC Registered</span>
+          <span class="niceic-note__text">Fault finding carried out by London BS Ltd uses the same calibrated test equipment used for EICR inspections. We diagnose methodically and carry out lasting repairs.</span>
+        </div>
+
+        <h2>What electrical fault finding involves</h2>
+        <p>Electrical fault finding is the process of identifying the root cause of a specific electrical failure — not guessing, not resetting the board and hoping. We use a calibrated multifunction tester to carry out insulation resistance tests, continuity checks and circuit testing to locate where a fault is and why it is occurring.</p>
+        <p>Many electrical faults are intermittent or non-obvious. A circuit that trips once and then works may have a loose terminal, damaged insulation, or a failing component. We work systematically — starting with the symptoms, isolating the affected circuit, and tracing through until the cause is identified.</p>
+
+        <h2>Common faults we diagnose</h2>
+        <ul class="check">
+          <li><strong>RCD tripping repeatedly</strong> — indicates earth leakage on a specific circuit; we test each circuit in turn to identify which one is causing the RCD to operate</li>
+          <li><strong>Circuit breaker tripping</strong> — caused by overload, short circuit, or wiring fault; we trace the circuit to find the cause rather than simply replacing the MCB</li>
+          <li><strong>Partial power loss</strong> — some circuits working, others dead; often a failed MCB, loose connection at the consumer unit, or main supply issue</li>
+          <li><strong>Intermittent faults</strong> — appear and disappear without obvious cause; typically a loose terminal, damaged cable sheath, or failing component</li>
+          <li><strong>Dead sockets or switches</strong> — failed component, broken wiring, or fault on the circuit upstream</li>
+          <li><strong>Flickering lights</strong> — loose connection, failing lamp, or circuit issue at the rose or switch</li>
+          <li><strong>Electric shock from fittings</strong> — an earth fault; requires immediate investigation and should not be ignored</li>
+        </ul>
+
+        <h2>How we approach fault finding</h2>
+        <p>Before any testing, we ask about the symptoms — when the fault started, what changed beforehand, whether it is consistent or intermittent, and what circuits are affected. This initial assessment narrows the likely causes and avoids unnecessary work.</p>
+        <p>We then test systematically using calibrated equipment: insulation resistance testing, continuity, RCD trip times, and circuit isolation. We report clearly on what we find before carrying out any repair work.</p>
+
+        <h2>When an EICR may be more appropriate</h2>
+        <p>If you want a full condition report of the entire electrical installation — rather than tracing a specific known fault — an <a href="/eicr" class="inline-link">EICR</a> is the right starting point. An EICR checks the whole installation and produces a formal report with graded observations. If fault finding uncovers issues beyond the immediate problem, we will advise honestly on whether further work or a full inspection makes more sense.</p>
+
+        <h2 style="margin-top:2.5rem;">Frequently asked questions</h2>
+        <div class="faq-list" style="margin-top:1rem;">
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">What if the fault is intermittent?<span class="faq-icon">+</span></button><div class="faq-a">Intermittent faults are the most difficult to trace. Where a fault cannot be reproduced during a visit, we will discuss realistic options — whether that is further investigation on another occasion, targeted testing of likely components, or a broader inspection.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you fix the fault on the same visit?<span class="faq-icon">+</span></button><div class="faq-a">In many cases yes — particularly where the fault is traceable and the repair is straightforward. Where the work requires additional parts, a <a href="/consumer-unit-upgrades" class="inline-link">consumer unit upgrade</a>, or a more extensive rewire of a circuit, we advise you before proceeding.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Is fault finding different from an EICR?<span class="faq-icon">+</span></button><div class="faq-a">Yes. Fault finding is targeted at a specific known problem. An EICR is a full condition report of the whole installation, produced to a formal standard, whether or not a specific fault is present. Both involve testing, but they serve different purposes.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">My RCD keeps tripping — is this a fault?<span class="faq-icon">+</span></button><div class="faq-a">Yes. An RCD that trips regularly indicates an earth leakage fault somewhere on the protected circuits. We test each circuit in isolation to identify which one is causing the RCD to operate, then trace and repair the fault.</div></div>
+          <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you cover fault finding in Luton and Milton Keynes?<span class="faq-icon">+</span></button><div class="faq-a">Yes. We carry out fault finding across Dunstable, Luton, Milton Keynes, Leighton Buzzard, Houghton Regis and surrounding areas. See our <a href="/service-areas" class="inline-link">service areas page</a> for the full list.</div></div>
+        </div>
+
+      </div>
+      <aside class="sidebar">
+        <div class="sidebar-box">
+          <p class="sidebar-box__title">Report a fault</p>
+          <p class="sidebar-box__body">Describe the symptoms and we'll come back with a clear approach and price.</p>
+          <a href="/contact" class="btn btn--primary">Send an Enquiry</a>
+          <p class="sidebar-box__body" style="margin-top:0.65rem; margin-bottom:0.35rem;">Or call directly:</p>
+          <a href="tel:07427670610" class="sidebar-box__phone"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13 1 .36 1.97.71 2.9a2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 15.1 16.1l.96-.96a2 2 0 0 1 2.11-.45c.93.35 1.9.58 2.9.71a2 2 0 0 1 1.73 2.02Z"/></svg>07427 670610</a>
+          <div class="sidebar-related">
+            <p class="sidebar-related__label">Related pages</p>
+            <a href="/emergency-electrician"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Emergency Electrician</a>
+            <a href="/eicr"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>EICR Reports</a>
+            <a href="/consumer-unit-upgrades"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Consumer Unit Upgrades</a>
+            <a href="/service-areas"><svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Service Areas</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container">
+    <h2 class="cta-band__title">Electrical fault in Dunstable, Luton or Milton Keynes?</h2>
+    <p class="cta-band__body">Describe the symptoms and we'll come back with a clear approach. We cover Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis.</p>
+    <div class="cta-band__actions">
+      <a href="/contact" class="btn btn--outline btn--lg">Send an Enquiry</a>
+      <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
+    </div>
+  </div>
+</section>
+</Layout>
