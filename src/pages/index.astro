@@ -11,9 +11,11 @@ const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const schema = [
   {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "Electrician",
+    "@id": `${site}/#business`,
     "name": "London BS Ltd",
-    "description": "NICEIC registered electrician based in Dunstable. Specialists in EICR reports, house rewires, consumer unit upgrades and fault finding.",
+    "legalName": "LONDON BS LTD",
+    "description": "NICEIC registered electrician based in Dunstable. EICR reports, consumer unit upgrades, house rewires, fault finding and emergency electrical work.",
     "url": site,
     "telephone": "07427670610",
     "address": {
@@ -23,7 +25,18 @@ const schema = [
       "postalCode": "LU6 3JU",
       "addressCountry": "GB"
     },
-    "areaServed": ["Dunstable","Luton","Milton Keynes","Houghton Regis","Leighton Buzzard","Toddington","Harpenden","St Albans","Hemel Hempstead","Flitwick","Ampthill","Bedford","Bletchley"]
+    "areaServed": [
+      "Dunstable","Luton","Milton Keynes","Houghton Regis","Leighton Buzzard",
+      "Toddington","Harpenden","St Albans","Hemel Hempstead","Flitwick","Ampthill","Bedford","Bletchley"
+    ],
+    "openingHours": "Mo-Su 00:00-23:59"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": `${site}/#website`,
+    "url": site,
+    "name": "London BS Ltd"
   },
   {
     "@context": "https://schema.org",

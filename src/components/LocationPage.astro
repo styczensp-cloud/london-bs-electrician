@@ -32,12 +32,7 @@ const schema = [
     "@type": "Service",
     "name": `Electrician in ${name}`,
     "serviceType": "Electrical Contractor",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "London BS Ltd",
-      "url": site,
-      "telephone": "07427670610",
-    },
+    "provider": {"@id": `${site}/#business`},
     "areaServed": {
       "@type": "City",
       "name": name,

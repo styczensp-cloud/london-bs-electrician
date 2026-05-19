@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-const title = 'Contact London BS Ltd | Electrician Dunstable | Get a Quote';
-const description = 'Contact London BS Ltd for a quote on EICR certificates, house rewires, or consumer unit changes in Dunstable. Call 07427 670610 or send an enquiry.';
+const title = 'Contact London BS Ltd | Electrician Dunstable, Luton & Milton Keynes';
+const description = 'Contact London BS Ltd for a quote. NICEIC registered electrician covering Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis. Call 07427 670610.';
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},{"@type":"ListItem","position":2,"name":"Contact","item":`${site}/contact`}]};
@@ -27,7 +27,7 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
           <div class="contact-detail__icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
           <div>
             <p class="contact-detail__label">Address</p>
-            <p class="contact-detail__value">10 Meadway, Dunstable LU6 3JU</p>
+            <p class="contact-detail__value">10 Meadway, Dunstable, LU6 3JU</p>
             <a href="https://maps.app.goo.gl/RDbG3Ubr6oNokzyi7" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:0.35rem; font-size:0.83rem; color:var(--ink-light); margin-top:0.3rem; text-decoration:underline; text-underline-offset:2px;">View on Google Maps <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a>
           </div>
         </div>
@@ -37,7 +37,7 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
         </div>
         <div style="margin-top:1.75rem; padding-top:1.5rem; border-top:1px solid var(--light-border);">
           <h3 style="font-family:var(--font-display); font-size:1.05rem; font-weight:700; color:var(--ink); margin-bottom:0.5rem;">Service area</h3>
-          <p style="font-size:0.92rem; color:var(--ink-light); line-height:1.7;">We are based in Dunstable and work across the local area including <strong>Houghton Regis</strong>, <strong>Luton</strong>, and <strong>Leighton Buzzard</strong>. If you are unsure whether we cover your area, call us and we will confirm.</p>
+          <p style="font-size:0.92rem; color:var(--ink-light); line-height:1.7;">We are based in Dunstable and cover <strong>Luton</strong>, <strong>Milton Keynes</strong>, <strong>Leighton Buzzard</strong>, <strong>Houghton Regis</strong> and surrounding areas. Selected London projects by arrangement. If you are unsure whether we cover your postcode, call us and we will confirm.</p>
         </div>
         <a href="tel:07427670610" class="btn btn--primary btn--lg" style="margin-top:1.75rem; width:100%; display:block; text-align:center;">&#128222; Call 07427 670610</a>
       </div>
@@ -61,11 +61,14 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
               <label for="service">Service required <span style="color:#c0392b;">*</span></label>
               <select id="service" name="service" required>
                 <option value="" disabled selected>Select a service…</option>
-                <option value="eicr">EICR Certificate</option>
+                <option value="eicr">EICR Report</option>
                 <option value="landlord-eicr">Landlord EICR</option>
+                <option value="consumer-unit">Consumer Unit Upgrade</option>
+                <option value="fault-finding">Fault Finding</option>
                 <option value="rewire-full">Full House Rewire</option>
                 <option value="rewire-partial">Partial Rewire</option>
-                <option value="consumer-unit">Consumer Unit Replacement</option>
+                <option value="emergency">Emergency Electrical Work</option>
+                <option value="air-con">Air Conditioning Installation</option>
                 <option value="not-sure">Not sure — need advice</option>
               </select>
             </div>
@@ -97,10 +100,11 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
   <div class="container">
     <p class="related-strip__label">Our services</p>
     <div class="related-strip__links">
-      <a href="/eicr" class="btn btn--outline-brown" style="font-size:0.87rem;">EICR Certificates</a>
+      <a href="/eicr" class="btn btn--outline-brown" style="font-size:0.87rem;">EICR Reports</a>
       <a href="/landlord-eicr" class="btn btn--outline-brown" style="font-size:0.87rem;">Landlord EICR</a>
       <a href="/rewires" class="btn btn--outline-brown" style="font-size:0.87rem;">House Rewires</a>
-      <a href="/consumer-unit-changes" class="btn btn--outline-brown" style="font-size:0.87rem;">Consumer Unit Changes</a>
+      <a href="/consumer-unit-changes" class="btn btn--outline-brown" style="font-size:0.87rem;">Consumer Unit Upgrades</a>
+      <a href="/service-areas" class="btn btn--outline-brown" style="font-size:0.87rem;">Service Areas</a>
     </div>
   </div>
 </div>
