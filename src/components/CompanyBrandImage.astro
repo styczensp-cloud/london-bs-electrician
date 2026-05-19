@@ -1,0 +1,48 @@
+---
+// Glass-logo photo — office with LONDON BS LTD signage and certificates in background.
+// Source is 800×801px; 800w is native resolution (no upscaling).
+// Served as AVIF → WebP → fallback JPG (generated at build time from optimised master).
+
+interface Props {
+  class?: string;
+  loading?: 'lazy' | 'eager';
+}
+
+const { class: className = '', loading = 'lazy' } = Astro.props;
+---
+
+<picture class:list={['brand-img-wrap', className]}>
+  <source
+    type="image/avif"
+    srcset="/images/brand/glass-logo-600.avif 600w, /images/brand/glass-logo-800.avif 800w"
+    sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 900px) 380px, 420px"
+  />
+  <source
+    type="image/webp"
+    srcset="/images/brand/glass-logo-600.webp 600w, /images/brand/glass-logo-800.webp 800w"
+    sizes="(max-width: 640px) calc(100vw - 2.5rem), (max-width: 900px) 380px, 420px"
+  />
+  <img
+    src="/images/brand/glass-logo-800.webp"
+    alt="London BS Ltd office — glass signage with NICEIC certificates in background"
+    width="800"
+    height="801"
+    loading={loading}
+    decoding="async"
+    class="brand-img"
+  />
+</picture>
+
+<style>
+  .brand-img-wrap {
+    display: block;
+  }
+
+  .brand-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+  }
+</style>

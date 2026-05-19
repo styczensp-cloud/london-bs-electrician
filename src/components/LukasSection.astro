@@ -1,54 +1,63 @@
 ---
-// "Meet Lukas" — compact profile section, not a hero
+import CompanyBrandImage from './CompanyBrandImage.astro';
 ---
 
 <section class="section section--alt lukas-section">
   <div class="container">
-    <div class="lukas-inner">
+    <div class="lukas-grid">
 
-      <div class="lukas-photo-wrap">
-        <picture>
-          <source
-            type="image/avif"
-            srcset="/images/lukas/lukas-300.avif 300w, /images/lukas/lukas-600.avif 600w"
-            sizes="(max-width: 480px) 140px, 180px"
-          />
-          <source
-            type="image/webp"
-            srcset="/images/lukas/lukas-300.webp 300w, /images/lukas/lukas-600.webp 600w"
-            sizes="(max-width: 480px) 140px, 180px"
-          />
-          <img
-            src="/images/lukas/lukas-300.jpg"
-            alt="Lukas from London BS Ltd"
-            width="300"
-            height="300"
-            loading="lazy"
-            decoding="async"
-            class="lukas-photo"
-          />
-        </picture>
+      <!-- Left: portrait + bio -->
+      <div class="lukas-profile">
+        <div class="lukas-photo-wrap">
+          <picture>
+            <source
+              type="image/avif"
+              srcset="/images/lukas/lukas-300.avif 300w, /images/lukas/lukas-600.avif 600w"
+              sizes="(max-width: 480px) 140px, 180px"
+            />
+            <source
+              type="image/webp"
+              srcset="/images/lukas/lukas-300.webp 300w, /images/lukas/lukas-600.webp 600w"
+              sizes="(max-width: 480px) 140px, 180px"
+            />
+            <img
+              src="/images/lukas/lukas-300.jpg"
+              alt="Lukas from London BS Ltd"
+              width="300"
+              height="300"
+              loading="lazy"
+              decoding="async"
+              class="lukas-photo"
+            />
+          </picture>
+        </div>
+
+        <div class="lukas-body">
+          <span class="section-head__label">Who we are</span>
+          <h2 class="lukas-name">Lukas Gryko</h2>
+          <p class="lukas-role">Director &amp; Lead Electrician &middot; London BS Ltd</p>
+          <p class="lukas-bio">NICEIC registered and based in Dunstable. Lukas carries out every job personally — EICR certificates, consumer unit replacements, house rewires, and air conditioning. No subcontracting, no surprises.</p>
+          <ul class="lukas-badges">
+            <li>
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              NICEIC Registered
+            </li>
+            <li>
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              F-Gas Registered
+            </li>
+            <li>
+              <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Based in Dunstable LU6
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div class="lukas-body">
-        <span class="section-head__label">Who we are</span>
-        <h2 class="lukas-name">Lukas Gryko</h2>
-        <p class="lukas-role">Director &amp; Lead Electrician &middot; London BS Ltd</p>
-        <p class="lukas-bio">NICEIC registered and based in Dunstable. Lukas carries out every job personally — EICR certificates, consumer unit replacements, house rewires, and air conditioning. No subcontracting, no surprises.</p>
-        <ul class="lukas-badges">
-          <li>
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            NICEIC Registered
-          </li>
-          <li>
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            F-Gas Registered
-          </li>
-          <li>
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
-            Based in Dunstable LU6
-          </li>
-        </ul>
+      <!-- Right: office / brand image -->
+      <div class="lukas-brand">
+        <CompanyBrandImage />
+        <p class="lukas-brand__caption">London BS Ltd office — Dunstable</p>
       </div>
 
     </div>
@@ -61,35 +70,51 @@
     padding-bottom: 2.75rem;
   }
 
-  .lukas-inner {
-    display: flex;
+  /* Two-column on desktop, stacked on mobile */
+  .lukas-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
     align-items: center;
-    gap: 2rem;
   }
 
-  /* Photo */
+  @media (max-width: 720px) {
+    .lukas-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* --- Left: portrait + bio --- */
+  .lukas-profile {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+  }
+
   .lukas-photo-wrap {
     flex-shrink: 0;
   }
 
   .lukas-photo {
     display: block;
-    width: 180px;
-    height: 180px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
     border-radius: 50%;
     border: 3px solid var(--cream-dark);
     box-shadow: var(--shadow);
   }
 
-  /* Text */
   .lukas-body {
     min-width: 0;
+    flex: 1;
   }
 
   .lukas-name {
     font-family: var(--font-display);
-    font-size: clamp(1.4rem, 3vw, 1.9rem);
+    font-size: clamp(1.3rem, 2.5vw, 1.7rem);
     font-weight: 700;
     color: var(--ink);
     letter-spacing: -0.01em;
@@ -98,25 +123,24 @@
   }
 
   .lukas-role {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 500;
     color: var(--brown);
     letter-spacing: 0.03em;
-    margin: 0 0 0.8rem;
+    margin: 0 0 0.75rem;
   }
 
   .lukas-bio {
-    font-size: 0.93rem;
+    font-size: 0.91rem;
     color: var(--ink-light);
     line-height: 1.7;
-    margin: 0 0 0.9rem;
-    max-width: 520px;
+    margin: 0 0 0.85rem;
   }
 
   .lukas-badges {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 1rem;
+    flex-direction: column;
+    gap: 0.3rem;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -136,17 +160,35 @@
     flex-shrink: 0;
   }
 
-  /* Mobile: stack vertically, photo smaller */
-  @media (max-width: 520px) {
-    .lukas-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1.1rem;
-    }
+  /* --- Right: brand image --- */
+  .lukas-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+  }
 
+  .lukas-brand__caption {
+    font-size: 0.75rem;
+    color: var(--ink-light);
+    opacity: 0.6;
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  /* On mobile, brand image goes below portrait */
+  @media (max-width: 720px) {
+    .lukas-brand {
+      order: 2;
+    }
+    .lukas-profile {
+      order: 1;
+    }
+  }
+
+  @media (max-width: 420px) {
     .lukas-photo {
-      width: 140px;
-      height: 140px;
+      width: 90px;
+      height: 90px;
     }
   }
 </style>
