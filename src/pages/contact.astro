@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 const title = 'Contact London BS Ltd | Electrician Dunstable, Luton & Milton Keynes';
 const description = 'Contact London BS Ltd for a quote. NICEIC registered electrician covering Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis. Call 07427 670610.';
+const formEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? "";
+const isFormConfigured = formEndpoint.startsWith("https://formspree.io/f/");
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},{"@type":"ListItem","position":2,"name":"Contact","item":`${site}/contact`}]};
@@ -45,10 +47,9 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
         <div style="background:var(--cream); border-radius:var(--radius); padding:2rem; border:1px solid var(--light-border);">
           <h2 style="font-family:var(--font-display); font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:0.35rem;">Send an enquiry</h2>
           <p style="font-size:0.87rem; color:var(--ink-light); margin-bottom:1.35rem;">Fill in as much detail as you can and we will come back with a quote.</p>
-          <!-- DEVELOPER NOTE: Connect this form to Formspree or Netlify Forms before going live.
-               Replace action="#" with your Formspree endpoint: https://formspree.io/f/YOUR_ID
-               Or add netlify attribute for Netlify Forms: <form netlify name="contact"> -->
-          <form class="contact-form" action="#" id="enquiry-form" novalidate>
+          <!-- Set PUBLIC_FORMSPREE_ENDPOINT to a real https://formspree.io/f/... endpoint before enabling static form submissions. -->
+          <form class="contact-form" action={isFormConfigured ? formEndpoint : undefined} method="post" accept-charset="UTF-8" id="enquiry-form">
+            <input type="hidden" name="_subject" value="London BS Ltd website enquiry" />
             <div class="form-row">
               <div class="form-group"><label for="fname">First name <span style="color:#c0392b;">*</span></label><input type="text" id="fname" name="first_name" autocomplete="given-name" required placeholder="Jane"></div>
               <div class="form-group"><label for="lname">Last name <span style="color:#c0392b;">*</span></label><input type="text" id="lname" name="last_name" autocomplete="family-name" required placeholder="Smith"></div>
@@ -88,7 +89,10 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
               </div>
             </div>
             <div class="form-group"><label for="message">Additional details</label><textarea id="message" name="message" placeholder="Tell us anything else — age of the property, known issues, urgency, etc."></textarea></div>
-            <button type="submit" class="btn btn--primary" style="width:100%; font-size:1rem;">Send Enquiry</button>
+            <button type="submit" class="btn btn--primary" style="width:100%; font-size:1rem;" disabled={!isFormConfigured}>Send Enquiry</button>
+            {!isFormConfigured && (
+              <p class="form-note form-note--warning">Online enquiries are not connected yet. Please call 07427 670610.</p>
+            )}
             <p class="form-note">Fields marked * are required. We do not share your details.</p>
           </form>
         </div>

@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://london-bs-electrician.pages.dev/sitemap-index.xml
+Sitemap: https://londonbs.uk/sitemap-index.xml

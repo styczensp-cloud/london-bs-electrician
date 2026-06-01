@@ -1,6 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import type { LocationData } from '../data/locations';
+import { locations, type LocationData } from '../data/locations';
 
 interface Props {
   location: LocationData;
@@ -16,6 +16,11 @@ const {
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const pageUrl = `${site}/${slug}`;
+const locationPathByName = new Map(locations.map(({ name, slug }) => [name, `/${slug}`]));
+const nearbyAreaLinks = nearbyAreas.map(area => ({
+  name: area,
+  href: locationPathByName.get(area) ?? "/service-areas",
+}));
 
 const schema = [
   {
@@ -144,10 +149,10 @@ const checkSvg = `<svg width="13" height="13" fill="none" stroke="currentColor" 
           {nearbyAreas.length > 0 && (
             <div class="sidebar-related">
               <p class="sidebar-related__label">Nearby areas</p>
-              {nearbyAreas.map(area => (
-                <a href={`/service-areas`}>
+              {nearbyAreaLinks.map(area => (
+                <a href={area.href}>
                   <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                  {area}
+                  {area.name}
                 </a>
               ))}
             </div>
