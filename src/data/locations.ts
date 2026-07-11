@@ -6,6 +6,10 @@ export interface LocationFAQ {
 export interface LocationData {
   name: string;
   slug: string;
+  // Override the link target for this area in the service-area lists.
+  // Used for the home base (Dunstable), which has no dedicated location page —
+  // the homepage is its page — so its card links to "/" instead of /electrician-<slug>.
+  href?: string;
   postcode: string;
   county: string;
   nearbyAreas: string[];
@@ -24,6 +28,7 @@ export const locations: LocationData[] = [
   {
     name: 'Dunstable',
     slug: 'electrician-dunstable',
+    href: '/',
     postcode: 'LU6',
     county: 'Bedfordshire',
     nearbyAreas: ['Houghton Regis', 'Leighton Buzzard', 'Luton', 'Toddington'],

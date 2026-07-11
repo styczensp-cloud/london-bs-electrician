@@ -235,7 +235,7 @@ const schema = [
     </div>
     <div class="area-links">
       {locations.map(loc => (
-        <a href={`/${loc.slug}`} class="area-link">
+        <a href={loc.href ?? `/${loc.slug}`} class="area-link">
           <span class="area-link__post">{loc.postcode}</span>
           <span class="area-link__name">{loc.name}</span>
           <svg width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>

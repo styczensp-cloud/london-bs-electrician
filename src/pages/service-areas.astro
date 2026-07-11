@@ -63,7 +63,7 @@ const additionalAreas = [
 
     <div class="location-grid">
       {locations.map(loc => (
-        <a href={`/${loc.slug}`} class="location-card">
+        <a href={loc.href ?? `/${loc.slug}`} class="location-card">
           <div class="location-card__postcode">{loc.postcode}</div>
           <h3 class="location-card__name">{loc.name}</h3>
           <p class="location-card__county">{loc.county}</p>

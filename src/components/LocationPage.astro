@@ -16,7 +16,7 @@ const {
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const pageUrl = `${site}/${slug}`;
-const locationPathByName = new Map(locations.map(({ name, slug }) => [name, `/${slug}`]));
+const locationPathByName = new Map(locations.map(({ name, slug, href }) => [name, href ?? `/${slug}`]));
 const nearbyAreaLinks = nearbyAreas.map(area => ({
   name: area,
   href: locationPathByName.get(area) ?? "/service-areas",
