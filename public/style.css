@@ -591,3 +591,43 @@ ul { list-style: none; }
 @media (min-width: 700px) {
   .reviews-stats { grid-template-columns: 1fr 1fr; }
 }
+
+/* Hero star-rating trust pill */
+.hero__rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.6rem;
+  padding: 0.55rem 1.05rem;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background var(--transition), border-color var(--transition), transform var(--transition);
+}
+.hero__rating:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(224,163,46,0.55);
+  transform: translateY(-1px);
+}
+.hero__rating-stars {
+  color: #E0A32E;
+  font-size: 1.02rem;
+  letter-spacing: 0.12em;
+  line-height: 1;
+}
+.hero__rating-score {
+  font-weight: 800;
+  color: #fff;
+  font-size: 1.02rem;
+  line-height: 1;
+}
+.hero__rating-text {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.2;
+}
+.hero__rating-text strong { color: #fff; font-weight: 700; }
+@media (max-width: 520px) {
+  .hero__rating { flex-wrap: wrap; row-gap: 0.3rem; border-radius: 14px; }
+}
