@@ -2,8 +2,6 @@
 import Layout from '../layouts/Layout.astro';
 const title = 'Contact London BS Ltd | Electrician Dunstable, Luton & Milton Keynes';
 const description = 'Contact London BS Ltd for a quote. NICEIC registered electrician covering Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis. Call 07427 670610.';
-const formEndpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT ?? "";
-const isFormConfigured = formEndpoint.startsWith("https://formspree.io/f/");
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},{"@type":"ListItem","position":2,"name":"Contact","item":`${site}/contact`}]};
@@ -47,9 +45,11 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
         <div style="background:var(--cream); border-radius:var(--radius); padding:2rem; border:1px solid var(--light-border);">
           <h2 style="font-family:var(--font-display); font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:0.35rem;">Send an enquiry</h2>
           <p style="font-size:0.87rem; color:var(--ink-light); margin-bottom:1.35rem;">Fill in as much detail as you can and we will come back with a quote.</p>
-          <!-- Set PUBLIC_FORMSPREE_ENDPOINT to a real https://formspree.io/f/... endpoint before enabling static form submissions. -->
-          <form class="contact-form" action={isFormConfigured ? formEndpoint : undefined} method="post" accept-charset="UTF-8" id="enquiry-form">
-            <input type="hidden" name="_subject" value="London BS Ltd website enquiry" />
+          <form class="contact-form" method="post" accept-charset="UTF-8" id="enquiry-form" novalidate>
+            <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
+              <label for="company">Company</label>
+              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+            </div>
             <div class="form-row">
               <div class="form-group"><label for="fname">First name <span style="color:#c0392b;">*</span></label><input type="text" id="fname" name="first_name" autocomplete="given-name" required placeholder="Jane"></div>
               <div class="form-group"><label for="lname">Last name <span style="color:#c0392b;">*</span></label><input type="text" id="lname" name="last_name" autocomplete="family-name" required placeholder="Smith"></div>
@@ -89,10 +89,8 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
               </div>
             </div>
             <div class="form-group"><label for="message">Additional details</label><textarea id="message" name="message" placeholder="Tell us anything else — age of the property, known issues, urgency, etc."></textarea></div>
-            <button type="submit" class="btn btn--primary" style="width:100%; font-size:1rem;" disabled={!isFormConfigured}>Send Enquiry</button>
-            {!isFormConfigured && (
-              <p class="form-note form-note--warning">Online enquiries are not connected yet. Please call 07427 670610.</p>
-            )}
+            <button type="submit" id="enquiry-submit" class="btn btn--primary" style="width:100%; font-size:1rem;">Send Enquiry</button>
+            <p id="form-status" class="form-status" role="alert" style="display:none; margin-top:0.85rem; padding:0.7rem 0.9rem; border-radius:8px; font-size:0.9rem;"></p>
             <p class="form-note">Fields marked * are required. We do not share your details.</p>
           </form>
         </div>
@@ -112,4 +110,79 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
     </div>
   </div>
 </div>
+<script>
+  const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
+  const statusEl = document.getElementById('form-status') as HTMLElement | null;
+  const submitBtn = document.getElementById('enquiry-submit') as HTMLButtonElement | null;
+
+  function showStatus(el: HTMLElement, kind: 'success' | 'error', text: string) {
+    el.style.display = 'block';
+    el.textContent = text;
+    if (kind === 'success') {
+      el.style.background = '#e6f4ea';
+      el.style.color = '#1e6b34';
+      el.style.border = '1px solid #b6ddc2';
+    } else {
+      el.style.background = '#fdecea';
+      el.style.color = '#a5271b';
+      el.style.border = '1px solid #f2c4bd';
+    }
+  }
+
+  form?.addEventListener('submit', async (e: Event) => {
+    e.preventDefault();
+    if (!statusEl || !submitBtn) return;
+
+    // Let the browser flag missing required fields first
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    statusEl.style.display = 'none';
+    statusEl.textContent = '';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Sending…';
+
+    const formEl = e.target as HTMLFormElement;
+    const val = (name: string) => {
+      const el = formEl.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
+      return el ? el.value : '';
+    };
+    const data = {
+      first_name:    val('first_name'),
+      last_name:     val('last_name'),
+      phone:         val('phone'),
+      email:         val('email'),
+      service:       val('service'),
+      postcode:      val('postcode'),
+      property_type: val('property_type'),
+      message:       val('message'),
+      company:       val('company'),
+    };
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await res.json() as { ok: boolean; error?: string };
+
+      if (result.ok) {
+        showStatus(statusEl, 'success', 'Thanks — your enquiry has been sent. We’ll be in touch shortly.');
+        formEl.reset();
+        submitBtn.textContent = 'Sent ✓';
+      } else {
+        showStatus(statusEl, 'error', result.error ?? 'Something went wrong. Please try again or call 07427 670610.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Enquiry';
+      }
+    } catch (_err: unknown) {
+      showStatus(statusEl, 'error', 'Message could not be sent. Please call us directly on 07427 670610.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Send Enquiry';
+    }
+  });
+</script>
 </Layout>
