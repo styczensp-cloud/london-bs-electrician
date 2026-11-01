@@ -24,7 +24,7 @@ const schema = [
       "@type": "ListItem",
       "position": i + 1,
       "name": `Electrician in ${loc.name}`,
-      "url": `${site}/${loc.slug}`,
+      "url": `${site}${loc.href ?? `/${loc.slug}`}`,
     })),
   },
 ];

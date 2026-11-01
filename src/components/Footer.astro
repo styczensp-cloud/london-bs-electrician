@@ -48,7 +48,7 @@ const guides = [
         <p class="footer-col__title">Service Areas</p>
         <ul>
           {locations.map(loc => (
-            <li><a href={`/${loc.slug}`}>{loc.name}</a></li>
+            <li><a href={loc.href ?? `/${loc.slug}`}>{loc.name}</a></li>
           ))}
           <li><a href="/service-areas">All areas &rarr;</a></li>
         </ul>
