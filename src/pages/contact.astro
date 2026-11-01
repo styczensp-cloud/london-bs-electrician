@@ -3,6 +3,9 @@ import Layout from '../layouts/Layout.astro';
 const title = 'Contact London BS Ltd | Electrician Dunstable, Luton & Milton Keynes';
 const description = 'Contact London BS Ltd for a quote. NICEIC registered electrician covering Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis. Call 07427 670610.';
 
+const email = 'londonbsltd@yahoo.com';
+const emailHref = `mailto:${email}?subject=${encodeURIComponent('Website enquiry — London BS Ltd')}`;
+
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":`${site}/`},{"@type":"ListItem","position":2,"name":"Contact","item":`${site}/contact`}]};
 ---
@@ -11,7 +14,7 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
   <div class="container">
     <nav class="page-hero__breadcrumb"><a href="/">Home</a><span>›</span><span aria-current="page">Contact</span></nav>
     <h1 class="page-hero__title">Get in touch</h1>
-    <p class="page-hero__body">Use the form below or call us directly. We respond to all enquiries promptly and come back with a clear quote.</p>
+    <p class="page-hero__body">Email us or call us directly. We respond to all enquiries promptly and come back with a clear quote.</p>
   </div>
 </section>
 <section class="section">
@@ -22,6 +25,10 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
         <div class="contact-detail">
           <div class="contact-detail__icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.13 1 .36 1.97.71 2.9a2 2 0 0 1-.45 2.11L7.91 8.91A16 16 0 0 0 15.1 16.1l.96-.96a2 2 0 0 1 2.11-.45c.93.35 1.9.58 2.9.71a2 2 0 0 1 1.73 2.02Z"/></svg></div>
           <div><p class="contact-detail__label">Phone</p><p class="contact-detail__value"><a href="tel:07427670610">07427 670610</a></p></div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail__icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></div>
+          <div style="min-width:0;"><p class="contact-detail__label">Email</p><p class="contact-detail__value" style="overflow-wrap:anywhere;"><a href={emailHref}>{email}</a></p></div>
         </div>
         <div class="contact-detail">
           <div class="contact-detail__icon"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
@@ -43,56 +50,19 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
       </div>
       <div>
         <div style="background:var(--cream); border-radius:var(--radius); padding:2rem; border:1px solid var(--light-border);">
-          <h2 style="font-family:var(--font-display); font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:0.35rem;">Send an enquiry</h2>
-          <p style="font-size:0.87rem; color:var(--ink-light); margin-bottom:1.35rem;">Fill in as much detail as you can and we will come back with a quote.</p>
-          <form class="contact-form" method="post" accept-charset="UTF-8" id="enquiry-form" novalidate>
-            <div aria-hidden="true" style="position:absolute; left:-9999px; width:1px; height:1px; overflow:hidden;">
-              <label for="company">Company</label>
-              <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label for="fname">First name <span style="color:#c0392b;">*</span></label><input type="text" id="fname" name="first_name" autocomplete="given-name" required placeholder="Jane"></div>
-              <div class="form-group"><label for="lname">Last name <span style="color:#c0392b;">*</span></label><input type="text" id="lname" name="last_name" autocomplete="family-name" required placeholder="Smith"></div>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label for="phone">Phone <span style="color:#c0392b;">*</span></label><input type="tel" id="phone" name="phone" autocomplete="tel" required placeholder="07700 900000"></div>
-              <div class="form-group"><label for="email">Email</label><input type="email" id="email" name="email" autocomplete="email" placeholder="jane@example.com"></div>
-            </div>
-            <div class="form-group">
-              <label for="service">Service required <span style="color:#c0392b;">*</span></label>
-              <select id="service" name="service" required>
-                <option value="" disabled selected>Select a service…</option>
-                <option value="eicr">EICR Report</option>
-                <option value="landlord-eicr">Landlord EICR</option>
-                <option value="consumer-unit">Consumer Unit Upgrade</option>
-                <option value="fault-finding">Fault Finding</option>
-                <option value="rewire-full">Full House Rewire</option>
-                <option value="rewire-partial">Partial Rewire</option>
-                <option value="emergency">Emergency Electrical Work</option>
-                <option value="air-con">Air Conditioning Installation</option>
-                <option value="not-sure">Not sure — need advice</option>
-              </select>
-            </div>
-            <div class="form-row">
-              <div class="form-group"><label for="postcode">Postcode <span style="color:#c0392b;">*</span></label><input type="text" id="postcode" name="postcode" autocomplete="postal-code" required placeholder="LU6 1AA"></div>
-              <div class="form-group">
-                <label for="property-type">Property type</label>
-                <select id="property-type" name="property_type">
-                  <option value="" disabled selected>Select…</option>
-                  <option>Terraced house</option>
-                  <option>Semi-detached house</option>
-                  <option>Detached house</option>
-                  <option>Purpose-built flat</option>
-                  <option>Converted flat</option>
-                  <option>Other</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group"><label for="message">Additional details</label><textarea id="message" name="message" placeholder="Tell us anything else — age of the property, known issues, urgency, etc."></textarea></div>
-            <button type="submit" id="enquiry-submit" class="btn btn--primary" style="width:100%; font-size:1rem;">Send Enquiry</button>
-            <p id="form-status" class="form-status" role="alert" style="display:none; margin-top:0.85rem; padding:0.7rem 0.9rem; border-radius:8px; font-size:0.9rem;"></p>
-            <p class="form-note">Fields marked * are required. We do not share your details.</p>
-          </form>
+          <h2 style="font-family:var(--font-display); font-size:1.3rem; font-weight:700; color:var(--ink); margin-bottom:0.35rem;">Email us for a quote</h2>
+          <p style="font-size:0.92rem; color:var(--ink-light); line-height:1.7; margin-bottom:1.1rem; overflow-wrap:anywhere;">Send your enquiry to <a href={emailHref} style="color:var(--brown-dark); font-weight:600; text-decoration:underline; text-underline-offset:2px;">{email}</a> and we will come back with a quote.</p>
+          <p style="font-size:0.92rem; font-weight:600; color:var(--ink); margin-bottom:0.4rem;">Please include:</p>
+          <ul style="list-style:disc; padding-left:1.2rem; font-size:0.92rem; color:var(--ink-light); line-height:1.7; margin-bottom:1.5rem;">
+            <li>Your name</li>
+            <li>Your phone number</li>
+            <li>Your postcode</li>
+            <li>The service you need</li>
+            <li>A brief description of the work</li>
+          </ul>
+          <a href={emailHref} class="btn btn--primary btn--lg" style="width:100%; display:block; text-align:center;">Email Lukas</a>
+          <p style="font-size:0.83rem; color:var(--ink-light); line-height:1.6; margin-top:0.85rem;">The button opens the email app on your device. If you use webmail, copy our address into a new message:</p>
+          <p style="font-size:0.97rem; font-weight:600; color:var(--ink); margin-top:0.5rem; overflow-wrap:anywhere; -webkit-user-select:all; user-select:all;">{email}</p>
         </div>
       </div>
     </div>
@@ -110,79 +80,4 @@ const schema = {"@context":"https://schema.org","@type":"BreadcrumbList","itemLi
     </div>
   </div>
 </div>
-<script>
-  const form = document.getElementById('enquiry-form') as HTMLFormElement | null;
-  const statusEl = document.getElementById('form-status') as HTMLElement | null;
-  const submitBtn = document.getElementById('enquiry-submit') as HTMLButtonElement | null;
-
-  function showStatus(el: HTMLElement, kind: 'success' | 'error', text: string) {
-    el.style.display = 'block';
-    el.textContent = text;
-    if (kind === 'success') {
-      el.style.background = '#e6f4ea';
-      el.style.color = '#1e6b34';
-      el.style.border = '1px solid #b6ddc2';
-    } else {
-      el.style.background = '#fdecea';
-      el.style.color = '#a5271b';
-      el.style.border = '1px solid #f2c4bd';
-    }
-  }
-
-  form?.addEventListener('submit', async (e: Event) => {
-    e.preventDefault();
-    if (!statusEl || !submitBtn) return;
-
-    // Let the browser flag missing required fields first
-    if (!form.checkValidity()) {
-      form.reportValidity();
-      return;
-    }
-
-    statusEl.style.display = 'none';
-    statusEl.textContent = '';
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Sending…';
-
-    const formEl = e.target as HTMLFormElement;
-    const val = (name: string) => {
-      const el = formEl.elements.namedItem(name) as HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
-      return el ? el.value : '';
-    };
-    const data = {
-      first_name:    val('first_name'),
-      last_name:     val('last_name'),
-      phone:         val('phone'),
-      email:         val('email'),
-      service:       val('service'),
-      postcode:      val('postcode'),
-      property_type: val('property_type'),
-      message:       val('message'),
-      company:       val('company'),
-    };
-
-    try {
-      const res = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      });
-      const result = await res.json() as { ok: boolean; error?: string };
-
-      if (result.ok) {
-        showStatus(statusEl, 'success', 'Thanks — your enquiry has been sent. We’ll be in touch shortly.');
-        formEl.reset();
-        submitBtn.textContent = 'Sent ✓';
-      } else {
-        showStatus(statusEl, 'error', result.error ?? 'Something went wrong. Please try again or call 07427 670610.');
-        submitBtn.disabled = false;
-        submitBtn.textContent = 'Send Enquiry';
-      }
-    } catch (_err: unknown) {
-      showStatus(statusEl, 'error', 'Message could not be sent. Please call us directly on 07427 670610.');
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Send Enquiry';
-    }
-  });
-</script>
 </Layout>
