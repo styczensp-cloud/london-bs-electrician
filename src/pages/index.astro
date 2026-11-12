@@ -3,9 +3,35 @@ import Layout from '../layouts/Layout.astro';
 import TikTokSection from '../components/tiktok/TikTokSection.astro';
 import LukasSection from '../components/LukasSection.astro';
 import { locations } from '../data/locations';
+import { googleReviews, ratedPeopleReviews, formatRating } from '../data/reviews';
 
-const title = 'Electrician Dunstable, Luton & Milton Keynes | EICR Reports | London BS Ltd';
-const description = 'NICEIC registered electrician based in Dunstable. EICR reports, consumer unit upgrades, house rewires and fault finding across Dunstable, Luton, Milton Keynes, Leighton Buzzard and Houghton Regis.';
+const title = 'Electrician in Dunstable | EICR, Consumer Units, Rewires | London BS Ltd';
+const description = 'NICEIC registered electrician based in Dunstable LU6. EICR reports, consumer unit upgrades, rewires and fault finding. Also covering Luton and Milton Keynes.';
+
+const googleRating = formatRating(googleReviews.rating);
+const ratedPeopleRating = formatRating(ratedPeopleReviews.rating);
+
+// TODO(owner): confirm whether a call-out fee applies to Dunstable jobs and replace
+// the holding answer below. It must agree with "no travel charge for Dunstable jobs"
+// in the "Electrical work in Dunstable" section.
+const faqs = [
+  {
+    q: 'Are you based in Dunstable?',
+    a: 'Yes. London BS Ltd is based at 10 Meadway, Dunstable LU6 3JU. Dunstable is our home area, and we also cover the surrounding towns and villages.',
+  },
+  {
+    q: 'Do you charge a call-out fee in Dunstable?',
+    a: 'We confirm any charges for your job before we attend. Call 07427 670610 or get in touch for a quote.',
+  },
+  {
+    q: 'Can you issue a landlord EICR in Dunstable?',
+    a: 'Yes. As a NICEIC registered contractor we carry out landlord EICRs on rental properties in Dunstable and issue the report landlords need under the Electrical Safety Standards in the Private Rented Sector (England) Regulations 2020.',
+  },
+  {
+    q: 'Which areas near Dunstable do you cover?',
+    a: 'Around Dunstable we cover the town centre, Houghton Regis, Totternhoe, Kensworth, Eaton Bray and Caddington. We also cover Luton, Milton Keynes and Leighton Buzzard.',
+  },
+];
 
 const site = Astro.site?.toString().replace(/\/$/, '') ?? '';
 const schema = [
@@ -16,8 +42,8 @@ const schema = [
     "name": "London BS Ltd",
     "legalName": "LONDON BS LTD",
     "description": "NICEIC registered electrician based in Dunstable. EICR reports, consumer unit upgrades, house rewires, fault finding and emergency electrical work.",
-    "url": site,
-    "telephone": "07427670610",
+    "url": `${site}/`,
+    "telephone": "07427 670610",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "10 Meadway",
@@ -26,10 +52,26 @@ const schema = [
       "addressCountry": "GB"
     },
     "areaServed": [
-      "Dunstable","Luton","Milton Keynes","Houghton Regis","Leighton Buzzard",
+      "Dunstable","Houghton Regis","Totternhoe","Kensworth","Eaton Bray","Caddington",
+      "Luton","Milton Keynes","Leighton Buzzard",
       "Toddington","Harpenden","St Albans","Hemel Hempstead","Flitwick","Ampthill","Bedford","Bletchley"
     ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": googleRating,
+      "reviewCount": googleReviews.count,
+      "bestRating": "5"
+    },
     "openingHours": "Mo-Su 00:00-23:59"
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(({ q, a }) => ({
+      "@type": "Question",
+      "name": q,
+      "acceptedAnswer": { "@type": "Answer", "text": a }
+    }))
   },
   {
     "@context": "https://schema.org",
@@ -51,17 +93,17 @@ const schema = [
   <div class="container hero__inner">
 
     <div class="hero__left">
-      <p class="hero__label">Dunstable · Luton · Milton Keynes</p>
-      <h1 class="hero__title">Qualified electrician in Dunstable, Luton &amp; <em>Milton Keynes</em></h1>
-      <p class="hero__body">London BS Ltd carries out EICR reports, consumer unit upgrades, rewires, fault finding and electrical work across Dunstable, Luton, Milton Keynes, Leighton Buzzard, Houghton Regis and nearby areas, with selected London projects by arrangement.</p>
+      <p class="hero__label">NICEIC Registered · Dunstable LU6</p>
+      <h1 class="hero__title">Electrician in <em>Dunstable</em></h1>
+      <p class="hero__body">London BS Ltd is based in Dunstable and carries out EICR reports, consumer unit upgrades, rewires, fault finding and electrical work across the town and the LU6 area. We also cover <a href="/electrician-luton">Luton</a>, <a href="/electrician-milton-keynes">Milton Keynes</a>, <a href="/electrician-leighton-buzzard">Leighton Buzzard</a> and <a href="/electrician-houghton-regis">Houghton Regis</a>, with selected London projects by arrangement.</p>
       <div class="hero__actions">
         <a href="/contact" class="btn btn--primary btn--lg">Get a Quote</a>
         <a href="tel:07427670610" class="btn btn--outline btn--lg">Call 07427 670610</a>
       </div>
-      <a href="https://share.google/Z7Pnd7y12j1YaVYW0" target="_blank" rel="noopener noreferrer" class="hero__rating">
+      <a href={googleReviews.url} target="_blank" rel="noopener noreferrer" class="hero__rating">
         <span class="hero__rating-stars" aria-hidden="true">★★★★★</span>
-        <span class="hero__rating-score">5.0</span>
-        <span class="hero__rating-text">Rated <strong>5.0</strong> from <strong>56 Google reviews</strong> &amp; <strong>75</strong> on Rated People</span>
+        <span class="hero__rating-score">{googleRating}</span>
+        <span class="hero__rating-text">Rated <strong>{googleRating}</strong> from <strong>{googleReviews.count} Google reviews</strong> &amp; <strong>{ratedPeopleReviews.count}</strong> on Rated People</span>
       </a>
       <div class="hero__trust">
         <span class="hero__trust-badge">NICEIC Registered</span>
@@ -154,6 +196,27 @@ const schema = [
   </div>
 </section>
 
+{/*
+  TODO(owner): please confirm before publishing:
+  - No travel charge applies to all Dunstable jobs (and agrees with the call-out fee FAQ answer).
+  - Totternhoe, Kensworth, Eaton Bray and Caddington are areas you are happy to cover.
+  - The description of local housing (older homes with original fuse boards, rental properties needing EICRs) matches what you see in Dunstable.
+*/}
+<section class="section local-section">
+  <div class="container">
+    <div class="content-body local-section__body">
+      <span class="section-head__label">Local to LU6</span>
+      <h2 class="section-head__title">Electrical work in Dunstable</h2>
+      <p>London BS Ltd is based at Meadway in Dunstable, LU6. Dunstable is our home area, so there is no travel charge for jobs in the town.</p>
+      <p>As well as Dunstable town centre, we cover the villages and towns around it, including Houghton Regis, Totternhoe, Kensworth, Eaton Bray and Caddington. If you are not sure whether your address is covered, call and ask.</p>
+      <p>Much of the electrical work around Dunstable comes down to the age of the housing. Older homes often still have their original fuse board, with little or no RCD protection. A <a href="/consumer-unit-upgrades" class="inline-link">consumer unit upgrade</a> replaces it with a modern board that meets current standards. Where the wiring itself has deteriorated, a full or partial <a href="/rewires" class="inline-link">rewire</a> may be the better option, and we will explain the difference before you decide.</p>
+      <p>Rental properties need attention too. Private landlords in England must hold a valid EICR, renewed at least every five years. We carry out <a href="/landlord-eicr" class="inline-link">landlord EICRs</a> for rental properties and <a href="/eicr" class="inline-link">EICR reports</a> for homeowners, buyers and sellers.</p>
+      <p>If something has stopped working, such as a circuit that keeps tripping or a socket with no power, our <a href="/fault-finding" class="inline-link">fault finding</a> service traces the cause before any repair is made.</p>
+      <p>All work is carried out to BS 7671 and certified on completion.</p>
+    </div>
+  </div>
+</section>
+
 <section class="section section--alt">
   <div class="container">
     <span class="section-head__label">EICR focus</span>
@@ -189,20 +252,20 @@ const schema = [
   <div class="container">
     <div class="section-head">
       <span class="section-head__label">Customer reviews</span>
-      <h2 class="section-head__title">Rated 5.0 out of 5 by our customers</h2>
+      <h2 class="section-head__title">Rated {googleRating} out of 5 by our customers</h2>
       <p class="section-head__body">We let our work speak for itself. Homeowners and landlords across Dunstable, Luton and Milton Keynes consistently rate London BS Ltd five stars — on Google and on Rated People.</p>
     </div>
     <div class="reviews-stats">
-      <a href="https://share.google/Z7Pnd7y12j1YaVYW0" target="_blank" rel="noopener noreferrer" class="review-stat">
+      <a href={googleReviews.url} target="_blank" rel="noopener noreferrer" class="review-stat">
         <div class="review-stat__stars" aria-hidden="true">★★★★★</div>
-        <p class="review-stat__score">5.0</p>
-        <p class="review-stat__source">56 Google reviews</p>
+        <p class="review-stat__score">{googleRating}</p>
+        <p class="review-stat__source">{googleReviews.count} Google reviews</p>
         <span class="review-stat__cta">Read on Google →</span>
       </a>
-      <a href="https://www.ratedpeople.com/profile/handyman-service-borehamwood" target="_blank" rel="noopener noreferrer" class="review-stat">
+      <a href={ratedPeopleReviews.url} target="_blank" rel="noopener noreferrer" class="review-stat">
         <div class="review-stat__stars" aria-hidden="true">★★★★★</div>
-        <p class="review-stat__score">5.0</p>
-        <p class="review-stat__source">75 verified reviews</p>
+        <p class="review-stat__score">{ratedPeopleRating}</p>
+        <p class="review-stat__source">{ratedPeopleReviews.count} verified reviews</p>
         <span class="review-stat__cta">Read on Rated People →</span>
       </a>
     </div>
@@ -220,6 +283,7 @@ const schema = [
         <figcaption>Suzanne, NW6 &middot; Rated People, January 2018</figcaption>
       </figure>
     </div>
+    <p class="reviews-note">Previously based in Borehamwood, now in Dunstable.</p>
     <div class="reviews-verified">
       <p class="reviews-verified__label">Independently verified on Rated People</p>
       <ul class="reviews-verified__list">
@@ -301,6 +365,26 @@ const schema = [
   </div>
 </section>
 
+{/* TODO(owner): replace the holding answer to "Do you charge a call-out fee in Dunstable?" (defined in the faqs array at the top of this file). */}
+<section class="section">
+  <div class="container">
+    <div class="local-section__body">
+      <div class="section-head">
+        <span class="section-head__label">FAQ</span>
+        <h2 class="section-head__title">Dunstable electrician questions</h2>
+      </div>
+      <div class="faq-list">
+        {faqs.map(({ q, a }) => (
+          <div class="faq-item">
+            <button class="faq-q" aria-expanded="false">{q}<span class="faq-icon">+</span></button>
+            <div class="faq-a">{a}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta-band">
   <div class="container">
     <h2 class="cta-band__title">Need an electrician in Dunstable, Luton or Milton Keynes?</h2>
@@ -313,3 +397,12 @@ const schema = [
 </section>
 
 </Layout>
+
+<style>
+  .hero__body a { color: rgba(255,255,255,0.9); border-bottom: 1px solid var(--brown); }
+  .hero__body a:hover { color: var(--white); }
+  .local-section { border-top: 1px solid var(--light-border); }
+  .local-section__body { max-width: 720px; }
+  .local-section__body .section-head__title { margin-bottom: 1rem; }
+  .reviews-note { font-size: 0.84rem; color: var(--ink-light); margin-top: 1rem; text-align: center; }
+</style>
