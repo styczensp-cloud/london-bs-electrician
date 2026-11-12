@@ -5,23 +5,16 @@ import LukasSection from '../components/LukasSection.astro';
 import { locations } from '../data/locations';
 import { googleReviews, ratedPeopleReviews, formatRating } from '../data/reviews';
 
-const title = 'Electrician in Dunstable | EICR, Consumer Units, Rewires | London BS Ltd';
+const title = 'Electrician in Dunstable | EICR & Rewires | London BS Ltd';
 const description = 'NICEIC registered electrician based in Dunstable LU6. EICR reports, consumer unit upgrades, rewires and fault finding. Also covering Luton and Milton Keynes.';
 
 const googleRating = formatRating(googleReviews.rating);
 const ratedPeopleRating = formatRating(ratedPeopleReviews.rating);
 
-// TODO(owner): confirm whether a call-out fee applies to Dunstable jobs and replace
-// the holding answer below. It must agree with "no travel charge for Dunstable jobs"
-// in the "Electrical work in Dunstable" section.
 const faqs = [
   {
     q: 'Are you based in Dunstable?',
     a: 'Yes. London BS Ltd is based at 10 Meadway, Dunstable LU6 3JU. Dunstable is our home area, and we also cover the surrounding towns and villages.',
-  },
-  {
-    q: 'Do you charge a call-out fee in Dunstable?',
-    a: 'We confirm any charges for your job before we attend. Call 07427 670610 or get in touch for a quote.',
   },
   {
     q: 'Can you issue a landlord EICR in Dunstable?',
@@ -198,7 +191,7 @@ const schema = [
 
 {/*
   TODO(owner): please confirm before publishing:
-  - No travel charge applies to all Dunstable jobs (and agrees with the call-out fee FAQ answer).
+  - No travel charge applies to all Dunstable jobs.
   - Totternhoe, Kensworth, Eaton Bray and Caddington are areas you are happy to cover.
   - The description of local housing (older homes with original fuse boards, rental properties needing EICRs) matches what you see in Dunstable.
 */}
@@ -365,7 +358,6 @@ const schema = [
   </div>
 </section>
 
-{/* TODO(owner): replace the holding answer to "Do you charge a call-out fee in Dunstable?" (defined in the faqs array at the top of this file). */}
 <section class="section">
   <div class="container">
     <div class="local-section__body">
