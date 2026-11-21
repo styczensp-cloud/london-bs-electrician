@@ -79,6 +79,7 @@ ul { list-style: none; }
 .btn:disabled { opacity: 0.58; cursor: not-allowed; }
 .btn--icon { display: inline-flex; align-items: center; justify-content: center; gap: 0.55rem; }
 .btn__icon { flex-shrink: 0; }
+.btn__icon--whatsapp { color: #25D366; }
 
 /* ============================================================
    HEADER
