@@ -3,7 +3,7 @@
 
 export const googleReviews = {
   rating: 5.0,
-  count: 63,
+  count: 66,
   url: 'https://share.google/Z7Pnd7y12j1YaVYW0',
 };
 
