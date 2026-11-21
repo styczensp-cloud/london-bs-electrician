@@ -377,6 +377,7 @@ ul { list-style: none; }
 .contact-detail__value { font-size: 0.97rem; font-weight: 500; color: var(--ink); }
 .contact-detail__value a { color: var(--ink); }
 .contact-detail__value a:hover { color: var(--brown); }
+.contact-detail__phone { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1rem; }
 .contact-form { display: flex; flex-direction: column; gap: 0.9rem; }
 .form-row { display: grid; grid-template-columns: 1fr; gap: 0.9rem; }
 .form-group { display: flex; flex-direction: column; gap: 0.3rem; }
@@ -661,4 +662,5 @@ ul { list-style: none; }
 .hero__rating-text strong { color: #fff; font-weight: 700; }
 @media (max-width: 520px) {
   .hero__rating { flex-wrap: wrap; row-gap: 0.3rem; border-radius: 14px; }
+  .hero__actions .btn { flex: 1 1 100%; }
 }
